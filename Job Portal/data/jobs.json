@@ -1,0 +1,1087 @@
+[
+  {
+    "id": 1,
+    "company": "Google Inc.",
+    "location": "USA",
+    "title": "Software Engineer",
+    "positions": 5,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$7000/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    "description": {
+      "jobOverview": "We are seeking a highly motivated Software Engineer to design and develop scalable applications using modern technologies. You will work closely with cross-functional teams to deliver high-quality software solutions.",
+      "responsibilities": [
+        "Develop, test, and maintain scalable web applications.",
+        "Collaborate with UI/UX designers to implement intuitive user interfaces.",
+        "Write clean, maintainable, and efficient code following best practices.",
+        "Participate in code reviews, debugging, and performance optimization."
+      ],
+      "skillsRequired": [
+        "Proficiency in Java, Python, or C++.",
+        "Experience with cloud platforms like AWS or GCP.",
+        "Knowledge of RESTful APIs and database systems.",
+        "Understanding of Agile methodologies and collaborative tools."
+      ],
+      "growthAndCulture": "Google promotes continuous learning, innovation, and employee growth. You will be part of a team that values transparency, creativity, and collaboration.",
+      "department": "Engineering",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["Software Development", "Cloud", "Agile", "Java", "Python"],
+      "designation": "Software Engineer"
+    }
+  },
+  {
+    "id": 2,
+    "company": "Microsoft",
+    "location": "USA",
+    "title": "Frontend Developer",
+    "positions": 3,
+    "type": "Full-time",
+    "experience": "1 year",
+    "salary": "$6500/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    "description": {
+      "jobOverview": "We are looking for a Frontend Developer to create responsive, visually appealing web applications. You will collaborate with designers and backend engineers to deliver high-quality user experiences.",
+      "responsibilities": [
+        "Develop interactive and responsive web interfaces using React.js.",
+        "Collaborate with UX/UI designers to implement design specifications.",
+        "Optimize application performance and troubleshoot issues.",
+        "Write clean, maintainable code and participate in code reviews."
+      ],
+      "skillsRequired": [
+        "Proficiency in React.js, JavaScript, HTML5, CSS3.",
+        "Experience with RESTful APIs and frontend frameworks.",
+        "Familiarity with version control systems like Git.",
+        "Understanding of responsive design and cross-browser compatibility."
+      ],
+      "growthAndCulture": "Microsoft encourages innovation, learning, and personal growth. Employees work in a collaborative environment focused on solving real-world problems.",
+      "department": "Engineering",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["Frontend", "React.js", "Web Development", "UI/UX"],
+      "designation": "Frontend Developer"
+    }
+  },
+  {
+    "id": 3,
+    "company": "Amazon",
+    "location": "Seattle",
+    "title": "Backend Developer",
+    "positions": 4,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$7200/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+    "description": {
+      "jobOverview": "Amazon is looking for a Backend Developer to build robust server-side applications and APIs. You will ensure scalability, reliability, and performance for global services.",
+      "responsibilities": [
+        "Design and implement backend services and APIs.",
+        "Ensure high performance and responsiveness of applications.",
+        "Write reusable, testable, and efficient code.",
+        "Collaborate with frontend developers and product managers."
+      ],
+      "skillsRequired": [
+        "Proficiency in Java, Node.js, or Python for backend development.",
+        "Experience with relational and NoSQL databases.",
+        "Knowledge of cloud computing (AWS) and microservices.",
+        "Strong problem-solving and debugging skills."
+      ],
+      "growthAndCulture": "Amazon fosters innovation, ownership, and customer-centric development. You will work in a dynamic, fast-paced environment with opportunities to grow.",
+      "department": "Engineering",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["Backend", "APIs", "AWS", "Microservices"],
+      "designation": "Backend Developer"
+    }
+  },
+  {
+    "id": 4,
+    "company": "Facebook",
+    "location": "California",
+    "title": "Data Scientist",
+    "positions": 2,
+    "type": "Part-time",
+    "experience": "2 years",
+    "salary": "$7500/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png",
+    "description": {
+      "jobOverview": "We are seeking a Data Scientist to analyze large datasets, develop predictive models, and provide actionable insights for business decisions. You will work closely with engineers and product teams.",
+      "responsibilities": [
+        "Analyze complex data sets to identify trends and patterns.",
+        "Develop machine learning models for predictive analytics.",
+        "Communicate findings through reports and dashboards.",
+        "Collaborate with cross-functional teams to implement data-driven solutions."
+      ],
+      "skillsRequired": [
+        "Proficiency in Python, R, SQL, and statistical modeling.",
+        "Experience with machine learning frameworks (scikit-learn, TensorFlow).",
+        "Strong analytical and problem-solving skills.",
+        "Ability to work with large-scale datasets and data pipelines."
+      ],
+      "growthAndCulture": "Facebook encourages innovation, learning, and collaboration. You will work in a data-driven culture where experimentation and insights are highly valued.",
+      "department": "Data Science",
+      "educationQualification": "B.Tech/M.Tech in Computer Science, Statistics, or related field",
+      "tags": ["Data Science", "Machine Learning", "Python", "Analytics"],
+      "designation": "Data Scientist"
+    }
+  },
+  {
+    "id": 5,
+    "company": "Apple",
+    "location": "USA",
+    "title": "iOS Developer",
+    "positions": 3,
+    "type": "Remote",
+    "experience": "1 year",
+    "salary": "$7000/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+    "description": {
+      "jobOverview": "We are looking for a talented iOS Developer to build and maintain high-quality mobile applications. You will collaborate with designers and backend engineers to deliver seamless user experiences.",
+      "responsibilities": [
+        "Design, develop, and maintain iOS applications using Swift and Objective-C.",
+        "Work closely with UI/UX designers to implement visually appealing designs.",
+        "Perform unit testing and ensure application performance and security.",
+        "Collaborate with backend teams for API integration and data handling."
+      ],
+      "skillsRequired": [
+        "Proficiency in Swift, Objective-C, and Xcode IDE.",
+        "Experience with RESTful APIs, Core Data, and mobile architecture patterns.",
+        "Knowledge of App Store submission process and guidelines.",
+        "Strong problem-solving, debugging, and collaboration skills."
+      ],
+      "growthAndCulture": "Apple fosters creativity, innovation, and technical excellence. You will work in an environment that values collaboration, design quality, and cutting-edge technology.",
+      "department": "Mobile Development",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["iOS", "Mobile Development", "Swift", "Objective-C"],
+      "designation": "iOS Developer"
+    }
+  },
+  {
+    "id": 6,
+    "company": "Netflix",
+    "location": "Los Angeles",
+    "title": "UI/UX Designer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$6800/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+    "description": {
+      "jobOverview": "We are seeking a creative UI/UX Designer to design seamless and engaging user experiences for our streaming platform. You will collaborate with product and development teams to bring ideas to life.",
+      "responsibilities": [
+        "Design intuitive user interfaces for web and mobile applications.",
+        "Create wireframes, prototypes, and high-fidelity designs.",
+        "Conduct user research and usability testing to improve designs.",
+        "Work closely with developers to ensure accurate implementation."
+      ],
+      "skillsRequired": [
+        "Proficiency in Figma, Sketch, Adobe XD, and Photoshop.",
+        "Strong understanding of user-centered design principles.",
+        "Experience with responsive and accessible design.",
+        "Excellent communication and collaboration skills."
+      ],
+      "growthAndCulture": "Netflix values creativity, innovation, and autonomy. Designers are encouraged to experiment, take ownership, and contribute to a user-first culture.",
+      "department": "Design",
+      "educationQualification": "B.Des/M.Des in Design or related field",
+      "tags": ["UI/UX", "Design", "Figma", "Prototyping"],
+      "designation": "UI/UX Designer"
+    }
+  },
+  {
+    "id": 7,
+    "company": "Tesla",
+    "location": "California",
+    "title": "Mechanical Engineer",
+    "positions": 4,
+    "type": "Part-time",
+    "experience": "2 years",
+    "salary": "$7000/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg",
+    "description": {
+      "jobOverview": "Tesla is looking for a Mechanical Engineer to design and develop innovative automotive components and systems. You will work with cross-functional teams to improve product performance and efficiency.",
+      "responsibilities": [
+        "Design, test, and optimize mechanical components for vehicles.",
+        "Collaborate with electrical and software engineers for integrated systems.",
+        "Create CAD models and technical drawings for manufacturing.",
+        "Participate in prototype development and testing."
+      ],
+      "skillsRequired": [
+        "Proficiency in CAD software (SolidWorks, CATIA).",
+        "Knowledge of automotive design and manufacturing processes.",
+        "Strong problem-solving and analytical skills.",
+        "Ability to work collaboratively in a fast-paced environment."
+      ],
+      "growthAndCulture": "Tesla promotes innovation, sustainability, and technical excellence. Engineers are empowered to challenge the status quo and deliver cutting-edge automotive solutions.",
+      "department": "Engineering",
+      "educationQualification": "B.Tech/M.Tech in Mechanical Engineering or related field",
+      "tags": ["Mechanical Engineering", "Automotive", "CAD", "Design"],
+      "designation": "Mechanical Engineer"
+    }
+  },
+  {
+    "id": 8,
+    "company": "IBM",
+    "location": "New York",
+    "title": "Cloud Engineer",
+    "positions": 3,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$6900/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+    "description": {
+      "jobOverview": "IBM is seeking a Cloud Engineer to design, deploy, and maintain cloud-based infrastructure and services. You will work with clients to implement scalable and secure solutions.",
+      "responsibilities": [
+        "Design and manage cloud infrastructure on AWS, Azure, or IBM Cloud.",
+        "Implement CI/CD pipelines and automation scripts.",
+        "Monitor and optimize cloud resources for performance and cost efficiency.",
+        "Collaborate with developers and architects to ensure reliable deployments."
+      ],
+      "skillsRequired": [
+        "Experience with cloud platforms (AWS, Azure, IBM Cloud).",
+        "Knowledge of containerization (Docker, Kubernetes).",
+        "Familiarity with DevOps tools and practices.",
+        "Strong troubleshooting and problem-solving skills."
+      ],
+      "growthAndCulture": "IBM fosters innovation, continuous learning, and collaboration. Cloud engineers are encouraged to explore new technologies and deliver enterprise-grade solutions.",
+      "department": "Cloud Infrastructure",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["Cloud", "DevOps", "AWS", "Kubernetes"],
+      "designation": "Cloud Engineer"
+    }
+  },
+  {
+    "id": 9,
+    "company": "Intel",
+    "location": "California",
+    "title": "Hardware Engineer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$7200/month",
+    "logo": "https://www.vectorlogo.zone/logos/intel/intel-icon.svg",
+    "description": {
+      "jobOverview": "Intel is looking for a Hardware Engineer to design, test, and optimize microprocessors and integrated circuits. You will work closely with design and validation teams to ensure product performance.",
+      "responsibilities": [
+        "Design and validate hardware components and circuits.",
+        "Perform simulations and testing to optimize performance.",
+        "Collaborate with software engineers for firmware integration.",
+        "Prepare technical documentation and test reports."
+      ],
+      "skillsRequired": [
+        "Experience with VLSI design, FPGA, and ASIC development.",
+        "Proficiency in CAD tools for circuit design and simulation.",
+        "Strong analytical and problem-solving abilities.",
+        "Knowledge of microprocessor architecture and embedded systems."
+      ],
+      "growthAndCulture": "Intel fosters innovation, research, and collaboration. Engineers are encouraged to experiment with new technologies and contribute to industry-leading solutions.",
+      "department": "Hardware Engineering",
+      "educationQualification": "B.Tech/M.Tech in Electronics or Electrical Engineering",
+      "tags": ["Hardware", "Microprocessors", "VLSI", "Circuit Design"],
+      "designation": "Hardware Engineer"
+    }
+  },
+  {
+    "id": 10,
+    "company": "Adobe",
+    "location": "California",
+    "title": "Graphic Designer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "1 year",
+    "salary": "$6500/month",
+    "logo": "https://www.vectorlogo.zone/logos/adobe_acrobat/adobe_acrobat-icon.svg",
+    "description": {
+      "jobOverview": "Adobe is seeking a Graphic Designer to create visually compelling designs for web, mobile, and print media. You will work with marketing and product teams to bring creative concepts to life.",
+      "responsibilities": [
+        "Design graphics for digital campaigns, websites, and applications.",
+        "Develop branding materials and promotional content.",
+        "Collaborate with UX/UI designers and developers.",
+        "Maintain consistency in visual designs and branding."
+      ],
+      "skillsRequired": [
+        "Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign).",
+        "Strong understanding of typography, color theory, and layout design.",
+        "Experience with motion graphics and animation is a plus.",
+        "Good communication and collaboration skills."
+      ],
+      "growthAndCulture": "Adobe encourages creativity, experimentation, and collaboration. Designers are empowered to innovate and produce world-class visuals.",
+      "department": "Design",
+      "educationQualification": "B.Des/M.Des in Design or related field",
+      "tags": ["Graphic Design", "Adobe Creative Suite", "Visual Design", "Branding"],
+      "designation": "Graphic Designer"
+    }
+  },
+  {
+    "id": 11,
+    "company": "Infosys",
+    "location": "Bangalore",
+    "title": "Java Developer",
+    "positions": 5,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$2500/month",
+    "logo": "assets/logos/infosys.png",
+    "description": {
+      "jobOverview": "Infosys is hiring a Java Developer to develop enterprise-level applications. You will collaborate with cross-functional teams to build scalable and maintainable solutions.",
+      "responsibilities": [
+        "Develop backend services and APIs using Java and Spring Boot.",
+        "Write clean, maintainable, and testable code.",
+        "Participate in code reviews and debugging.",
+        "Collaborate with frontend developers for seamless integration."
+      ],
+      "skillsRequired": [
+        "Proficiency in Java, Spring Boot, and Hibernate.",
+        "Experience with relational databases (MySQL, Oracle).",
+        "Knowledge of RESTful APIs and microservices architecture.",
+        "Familiarity with Agile methodologies."
+      ],
+      "growthAndCulture": "Infosys emphasizes continuous learning, professional development, and teamwork. Developers are encouraged to innovate and enhance solutions.",
+      "department": "Software Development",
+      "educationQualification": "B.Tech/M.Tech in Computer Science",
+      "tags": ["Java", "Spring Boot", "Microservices", "Backend"],
+      "designation": "Java Developer"
+    }
+  },
+  {
+    "id": 12,
+    "company": "TCS",
+    "location": "Mumbai",
+    "title": "Business Analyst",
+    "positions": 4,
+    "type": "Full-time",
+    "experience": "1 year",
+    "salary": "$2300/month",
+    "logo": "assets/logos/tcs.png",
+    "description": {
+      "jobOverview": "TCS is looking for a Business Analyst to gather and analyze business requirements and facilitate communication between stakeholders and IT teams.",
+      "responsibilities": [
+        "Elicit requirements from stakeholders and document business processes.",
+        "Analyze business needs and provide technical solutions.",
+        "Prepare functional specifications and process workflows.",
+        "Support project planning and risk analysis."
+      ],
+      "skillsRequired": [
+        "Strong analytical and problem-solving skills.",
+        "Experience with requirement gathering and documentation.",
+        "Knowledge of UML and business modeling.",
+        "Excellent communication and stakeholder management skills."
+      ],
+      "growthAndCulture": "TCS fosters professional growth, skill development, and a collaborative work environment. Analysts are encouraged to contribute insights and drive solutions.",
+      "department": "Business Analysis",
+      "educationQualification": "B.Tech/MBA in relevant field",
+      "tags": ["Business Analysis", "Requirements", "Documentation", "Stakeholder Management"],
+      "designation": "Business Analyst"
+    }
+  },
+  {
+    "id": 13,
+    "company": "Wipro",
+    "location": "Hyderabad",
+    "title": "System Analyst",
+    "positions": 3,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$2200/month",
+    "logo": "assets/logos/wipro.png",
+    "description": {
+      "jobOverview": "Wipro is seeking a System Analyst to assess, design, and implement IT systems to improve business operations. You will work closely with developers and business teams.",
+      "responsibilities": [
+        "Analyze system requirements and propose solutions.",
+        "Develop and maintain system documentation.",
+        "Ensure system performance, reliability, and security.",
+        "Collaborate with development and business teams."
+      ],
+      "skillsRequired": [
+        "Experience with system design and analysis.",
+        "Proficiency in SQL, databases, and enterprise applications.",
+        "Strong problem-solving and analytical skills.",
+        "Good communication and teamwork abilities."
+      ],
+      "growthAndCulture": "Wipro promotes learning, collaboration, and technical excellence. Analysts have the opportunity to work on diverse projects and technologies.",
+      "department": "IT Systems",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["System Analysis", "IT Systems", "Database", "Enterprise Applications"],
+      "designation": "System Analyst"
+    }
+  },
+  {
+    "id": 14,
+    "company": "Capgemini",
+    "location": "Pune",
+    "title": "QA Engineer",
+    "positions": 3,
+    "type": "Full-time",
+    "experience": "1 year",
+    "salary": "$2400/month",
+    "logo": "assets/logos/capgemini.png",
+    "description": {
+      "jobOverview": "Capgemini is seeking a QA Engineer to ensure the quality and reliability of software products. You will design, execute, and maintain automated and manual tests.",
+      "responsibilities": [
+        "Create and execute test plans, test cases, and scripts.",
+        "Identify, record, and track defects.",
+        "Collaborate with developers to reproduce and resolve issues.",
+        "Ensure adherence to quality standards and processes."
+      ],
+      "skillsRequired": [
+        "Experience with Selenium, JIRA, and other testing tools.",
+        "Knowledge of manual and automated testing methods.",
+        "Strong analytical and problem-solving skills.",
+        "Ability to work in Agile development environments."
+      ],
+      "growthAndCulture": "Capgemini emphasizes professional growth, collaboration, and innovation. QA engineers have opportunities to work on diverse projects across industries.",
+      "department": "Quality Assurance",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["QA", "Testing", "Automation", "Manual Testing"],
+      "designation": "QA Engineer"
+    }
+  },
+  {
+    "id": 15,
+    "company": "HCL Technologies",
+    "location": "Noida",
+    "title": "DevOps Engineer",
+    "positions": 2,
+    "type": "Part-time",
+    "experience": "2 years",
+    "salary": "$2600/month",
+    "logo": "assets/logos/hcl.png",
+    "description": {
+      "jobOverview": "HCL Technologies is hiring a DevOps Engineer to manage CI/CD pipelines, automate deployments, and optimize infrastructure performance.",
+      "responsibilities": [
+        "Implement and maintain CI/CD pipelines using Jenkins, Git, or similar tools.",
+        "Monitor system performance and troubleshoot deployment issues.",
+        "Collaborate with development teams to ensure reliable releases.",
+        "Document processes and maintain best practices for DevOps."
+      ],
+      "skillsRequired": [
+        "Experience with Docker, Kubernetes, and cloud platforms (AWS/Azure).",
+        "Strong scripting skills in Python, Bash, or PowerShell.",
+        "Knowledge of configuration management tools (Ansible, Puppet, Chef).",
+        "Familiarity with Agile and DevOps principles."
+      ],
+      "growthAndCulture": "HCL promotes continuous learning, collaboration, and exposure to cutting-edge technologies. DevOps engineers are empowered to improve processes and innovate.",
+      "department": "DevOps",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["DevOps", "CI/CD", "Automation", "Cloud"],
+      "designation": "DevOps Engineer"
+    }
+  },
+  {
+    "id": 16,
+    "company": "Accenture",
+    "location": "Bangalore",
+    "title": "Project Manager",
+    "positions": 1,
+    "type": "Full-time",
+    "experience": "5 years",
+    "salary": "$4000/month",
+    "logo": "https://www.vectorlogo.zone/logos/accenture/accenture-ar21~bgwhite.svg",
+    "description": {
+      "jobOverview": "Accenture is looking for an experienced Project Manager to lead cross-functional teams and deliver high-quality software projects on time and within budget.",
+      "responsibilities": [
+        "Plan, execute, and close projects successfully.",
+        "Manage project scope, schedule, and resources.",
+        "Coordinate with clients and stakeholders.",
+        "Mitigate risks and ensure project deliverables meet quality standards."
+      ],
+      "skillsRequired": [
+        "Strong project management and leadership skills.",
+        "Experience with Agile and Waterfall methodologies.",
+        "Excellent communication and stakeholder management.",
+        "Ability to manage multiple projects simultaneously."
+      ],
+      "growthAndCulture": "Accenture emphasizes leadership, continuous learning, and professional development. Project Managers are encouraged to mentor teams and drive innovation.",
+      "department": "Project Management",
+      "educationQualification": "B.Tech/MBA",
+      "tags": ["Project Management", "Leadership", "Agile", "Stakeholder Management"],
+      "designation": "Project Manager"
+    }
+  },
+  {
+    "id": 17,
+    "company": "Oracle",
+    "location": "California",
+    "title": "Database Administrator",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$7000/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
+    "description": {
+      "jobOverview": "Oracle seeks a Database Administrator to manage, optimize, and secure database systems. You will ensure high availability and performance for mission-critical applications.",
+      "responsibilities": [
+        "Install, configure, and maintain Oracle databases.",
+        "Monitor database performance and tune queries.",
+        "Implement backup, recovery, and security procedures.",
+        "Collaborate with developers for database integration."
+      ],
+      "skillsRequired": [
+        "Experience with Oracle DB, SQL, and PL/SQL.",
+        "Knowledge of database replication and clustering.",
+        "Strong problem-solving and troubleshooting skills.",
+        "Understanding of cloud-based database platforms is a plus."
+      ],
+      "growthAndCulture": "Oracle encourages continuous learning and skill development. DBAs are given opportunities to work with advanced database technologies and solutions.",
+      "department": "Database Management",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
+      "tags": ["Database", "Oracle", "SQL", "DBA"],
+      "designation": "Database Administrator"
+    }
+  },
+  {
+    "id": 18,
+    "company": "Cognizant",
+    "location": "Mumbai",
+    "title": "Software Tester",
+    "positions": 3,
+    "type": "Remote",
+    "experience": "1 yeae",
+    "salary": "$2300/month",
+    "logo": "assets/logos/cognizant.png",
+    "description": {
+      "jobOverview": "Cognizant is looking for a Software Tester to perform functional, regression, and integration testing for enterprise applications.",
+      "responsibilities": [
+        "Develop test cases based on requirements and specifications.",
+        "Execute manual and automated tests.",
+        "Report bugs and track defect resolution.",
+        "Collaborate with developers to reproduce and solve issues."
+      ],
+      "skillsRequired": [
+        "Experience with Selenium, QTP, or other testing tools.",
+        "Knowledge of SDLC and QA methodologies.",
+        "Strong analytical and problem-solving skills.",
+        "Familiarity with Agile development practices."
+      ],
+      "growthAndCulture": "Cognizant promotes learning, innovation, and teamwork. Testers are encouraged to improve quality processes and participate in cutting-edge projects.",
+      "department": "Quality Assurance",
+      "educationQualification": "B.Tech in IT/Computer Science",
+      "tags": ["QA", "Testing", "Automation", "Manual Testing"],
+      "designation": "Software Tester"
+    }
+  },
+  {
+    "id": 19,
+    "company": "Dell",
+    "location": "Texas",
+    "title": "IT Support Engineer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$2500/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg",
+    "description": {
+      "jobOverview": "Dell is seeking an IT Support Engineer to provide technical assistance to clients and internal teams, troubleshoot issues, and ensure smooth IT operations.",
+      "responsibilities": [
+        "Provide technical support for hardware and software issues.",
+        "Maintain and troubleshoot networks and servers.",
+        "Document support cases and resolutions.",
+        "Collaborate with IT and development teams to resolve problems."
+      ],
+      "skillsRequired": [
+        "Experience with Windows/Linux environments and network troubleshooting.",
+        "Knowledge of Active Directory, VPNs, and cloud services.",
+        "Strong problem-solving and communication skills.",
+        "Ability to manage multiple support tickets efficiently."
+      ],
+      "growthAndCulture": "Dell fosters a collaborative environment with a focus on technical excellence. Engineers have opportunities to work on enterprise IT projects.",
+      "department": "IT Support",
+      "educationQualification": "B.Tech/MCA in IT or related field",
+      "tags": ["IT Support", "Networking", "Troubleshooting", "Systems"],
+      "designation": "IT Support Engineer"
+    }
+  },
+  {
+    "id": 20,
+    "company": "SAP",
+    "location": "Germany",
+    "title": "Business Consultant",
+    "positions": 1,
+    "type": "Full-time",
+    "experience": "4 years",
+    "salary": "$5000/month",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
+    "description": {
+      "jobOverview": "SAP is hiring a Business Consultant to implement SAP solutions and advise clients on best practices to improve business processes.",
+      "responsibilities": [
+        "Gather client requirements and assess business needs.",
+        "Configure SAP modules according to client requirements.",
+        "Train end-users and provide ongoing support.",
+        "Collaborate with project teams to ensure timely delivery."
+      ],
+      "skillsRequired": [
+        "Experience with SAP modules like SD, MM, FICO, or HCM.",
+        "Strong analytical and communication skills.",
+        "Ability to translate business requirements into technical solutions.",
+        "Familiarity with project management methodologies."
+      ],
+      "growthAndCulture": "SAP emphasizes professional growth, innovation, and collaboration. Consultants have opportunities to work on global projects.",
+      "department": "Consulting",
+      "educationQualification": "B.Tech/MBA or relevant degree",
+      "tags": ["SAP", "Business Consulting", "ERP", "Implementation"],
+      "designation": "Business Consultant"
+    }
+  },
+  {
+    "id": 21,
+    "company": "Zoho",
+    "location": "India",
+    "title": "Full Stack Developer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$2000/month",
+    "logo": "https://www.vectorlogo.zone/logos/zoho/zoho-icon.svg",
+    "description": {
+      "jobOverview": "Zoho is looking for a Full Stack Developer to design and develop web and mobile applications end-to-end with a focus on performance, scalability, and user experience.",
+      "responsibilities": [
+        "Develop frontend interfaces using ReactJS and backend services using Node.js.",
+        "Build and consume RESTful APIs and ensure seamless integration.",
+        "Participate in code reviews, testing, and deployment.",
+        "Collaborate with product managers, designers, and QA teams."
+      ],
+      "skillsRequired": [
+        "Proficiency in ReactJS, Node.js, JavaScript/TypeScript.",
+        "Experience with SQL/NoSQL databases and API integration.",
+        "Knowledge of Agile development practices.",
+        "Understanding of cloud platforms like AWS/Azure."
+      ],
+      "growthAndCulture": "Zoho encourages innovation, learning, and collaboration. Developers are empowered to propose solutions and work on impactful projects.",
+      "department": "Software Development",
+      "educationQualification": "B.Tech/M.Tech in Computer Science",
+      "tags": ["Full Stack", "ReactJS", "Node.js", "API", "Cloud"],
+      "designation": "Full Stack Developer"
+    }
+  },
+  {
+    "id": 22,
+    "company": "Salesforce",
+    "location": "USA",
+    "title": "CRM Specialist",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$6000/month",
+    "logo": "https://www.vectorlogo.zone/logos/salesforce/salesforce-ar21.svg",
+    "description": {
+      "jobOverview": "Salesforce is hiring a CRM Specialist to manage and customize Salesforce solutions, ensuring client success and optimal system performance.",
+      "responsibilities": [
+        "Configure and customize Salesforce modules according to client requirements.",
+        "Train end-users and provide ongoing support.",
+        "Monitor system performance and troubleshoot issues.",
+        "Collaborate with sales and marketing teams for process optimization."
+      ],
+      "skillsRequired": [
+        "Experience with Salesforce CRM, Apex, and Visualforce.",
+        "Strong problem-solving and communication skills.",
+        "Ability to manage multiple client requirements simultaneously.",
+        "Understanding of cloud technologies and integrations."
+      ],
+      "growthAndCulture": "Salesforce emphasizes a culture of trust, innovation, and continuous learning. Specialists have opportunities to work on global CRM implementations.",
+      "department": "CRM",
+      "educationQualification": "B.Tech/MBA in IT or related field",
+      "tags": ["Salesforce", "CRM", "Apex", "Cloud"],
+      "designation": "CRM Specialist"
+    }
+  },
+  {
+    "id": 23,
+    "company": "Atos",
+    "location": "France",
+    "title": "IT Consultant",
+    "positions": 3,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$4500/month",
+    "logo": "assets/logos/atos.png",
+    "description": {
+      "jobOverview": "Atos is looking for an IT Consultant to provide IT solutions and advisory services to global clients, ensuring efficiency and innovation.",
+      "responsibilities": [
+        "Analyze client requirements and design IT solutions.",
+        "Implement technology solutions and provide support.",
+        "Collaborate with project teams and stakeholders.",
+        "Provide recommendations for process improvement."
+      ],
+      "skillsRequired": [
+        "Experience in IT consulting and solution design.",
+        "Knowledge of enterprise systems and cloud platforms.",
+        "Strong analytical and communication skills.",
+        "Ability to manage multiple client projects."
+      ],
+      "growthAndCulture": "Atos encourages innovation, teamwork, and professional development. Consultants are given opportunities to work on diverse international projects.",
+      "department": "IT Consulting",
+      "educationQualification": "B.Tech/MBA in IT or related field",
+      "tags": ["IT Consulting", "Enterprise Solutions", "Cloud", "Process Improvement"],
+      "designation": "IT Consultant"
+    }
+  },
+  {
+    "id": 24,
+    "company": "HP",
+    "location": "California",
+    "title": "Hardware Technician",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "1 year",
+    "salary": "$2500/month",
+    "logo": "https://www.vectorlogo.zone/logos/hp/hp-ar21.svg",
+    "description": {
+      "jobOverview": "HP is hiring a Hardware Technician to install, maintain, and repair hardware components for laptops, desktops, and servers.",
+      "responsibilities": [
+        "Assemble and configure hardware systems.",
+        "Troubleshoot and repair hardware issues.",
+        "Maintain hardware inventory and documentation.",
+        "Collaborate with IT and support teams for client assistance."
+      ],
+      "skillsRequired": [
+        "Experience with PC, server, and peripheral hardware.",
+        "Knowledge of BIOS, firmware updates, and diagnostics.",
+        "Good troubleshooting and problem-solving skills.",
+        "Strong communication and teamwork abilities."
+      ],
+      "growthAndCulture": "HP emphasizes innovation, technical excellence, and career development. Technicians have access to training and opportunities to work with cutting-edge hardware.",
+      "department": "Hardware Support",
+      "educationQualification": "Diploma/B.Tech in Electronics or IT",
+      "tags": ["Hardware", "Support", "Repair", "Troubleshooting"],
+      "designation": "Hardware Technician"
+    }
+  },
+  {
+    "id": 25,
+    "company": "Cisco",
+    "location": "USA",
+    "title": "Network Engineer",
+    "positions": 3,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$6500/month",
+    "logo": "https://www.vectorlogo.zone/logos/cisco/cisco-ar21.svg",
+    "description": {
+      "jobOverview": "Cisco is seeking a Network Engineer to design, implement, and maintain enterprise network infrastructures ensuring performance, security, and scalability.",
+      "responsibilities": [
+        "Configure and maintain routers, switches, and firewalls.",
+        "Monitor network performance and troubleshoot issues.",
+        "Implement network security policies and protocols.",
+        "Collaborate with IT teams for network optimization."
+      ],
+      "skillsRequired": [
+        "Experience with Cisco devices and networking protocols.",
+        "Knowledge of LAN/WAN, VPN, and network troubleshooting.",
+        "Strong analytical and problem-solving abilities.",
+        "Familiarity with cloud networking is a plus."
+      ],
+      "growthAndCulture": "Cisco fosters innovation, collaboration, and continuous learning. Network engineers get opportunities to work on large-scale enterprise networks.",
+      "department": "Networking",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or Electronics",
+      "tags": ["Networking", "Cisco", "LAN/WAN", "Network Security"],
+      "designation": "Network Engineer"
+    }
+  },
+  {
+    "id": 26,
+    "company": "Wipro",
+    "location": "Bangalore",
+    "title": "Cloud Solutions Architect",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "4 years",
+    "salary": "$5500/month",
+    "logo": "assets/logos/wipro.png",
+    "description": {
+      "jobOverview": "Wipro is hiring a Cloud Solutions Architect to design, implement, and manage scalable cloud architectures across AWS, Azure, and GCP.",
+      "responsibilities": [
+        "Design cloud infrastructure solutions for clients.",
+        "Ensure security, scalability, and high availability of cloud systems.",
+        "Collaborate with development and operations teams for seamless deployment.",
+        "Evaluate emerging cloud technologies and provide recommendations."
+      ],
+      "skillsRequired": [
+        "Experience with AWS, Azure, or GCP.",
+        "Strong knowledge of cloud security, networking, and microservices.",
+        "Hands-on with CI/CD pipelines and DevOps practices.",
+        "Excellent problem-solving and communication skills."
+      ],
+      "growthAndCulture": "Wipro emphasizes innovation, collaboration, and professional growth. Architects get opportunities to work on cutting-edge cloud projects globally.",
+      "department": "Cloud",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or IT",
+      "tags": ["Cloud", "AWS", "Azure", "Solutions Architect"],
+      "designation": "Cloud Solutions Architect"
+    }
+  },
+  {
+    "id": 27,
+    "company": "TCS",
+    "location": "Mumbai",
+    "title": "Business Analyst",
+    "positions": 3,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$4000/month",
+    "logo": "assets/logos/tcs.png",
+    "description": {
+      "jobOverview": "TCS is seeking a Business Analyst to gather requirements, analyze processes, and liaise between clients and technical teams to deliver software solutions.",
+      "responsibilities": [
+        "Gather, analyze, and document business requirements.",
+        "Work closely with development teams to translate requirements into technical specifications.",
+        "Support testing and implementation of solutions.",
+        "Provide insights for process improvement and optimization."
+      ],
+      "skillsRequired": [
+        "Experience with requirement gathering and business process modeling.",
+        "Proficiency in documentation and presentation skills.",
+        "Familiarity with Agile and Scrum methodologies.",
+        "Excellent communication and stakeholder management skills."
+      ],
+      "growthAndCulture": "TCS encourages continuous learning, collaboration, and innovation. Analysts are involved in projects across industries and domains.",
+      "department": "Business Analysis",
+      "educationQualification": "B.Tech/MBA in relevant field",
+      "tags": ["Business Analysis", "Requirement Gathering", "Agile", "Process Improvement"],
+      "designation": "Business Analyst"
+    }
+  },
+  {
+    "id": 28,
+    "company": "Infosys",
+    "location": "Bangalore",
+    "title": "Java Developer",
+    "positions": 4,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$3500/month",
+    "logo": "assets/logos/infosys.png",
+    "description": {
+      "jobOverview": "Infosys is looking for a Java Developer to build and maintain enterprise-grade applications using Java, Spring Boot, and RESTful APIs.",
+      "responsibilities": [
+        "Design, develop, and maintain Java applications.",
+        "Integrate with databases and external APIs.",
+        "Participate in code reviews and testing.",
+        "Collaborate with cross-functional teams for delivery of projects."
+      ],
+      "skillsRequired": [
+        "Proficiency in Java, Spring Boot, and Hibernate.",
+        "Experience with RESTful API design and integration.",
+        "Familiarity with relational databases like MySQL or PostgreSQL.",
+        "Understanding of Agile development practices."
+      ],
+      "growthAndCulture": "Infosys promotes innovation, collaboration, and skill development. Developers are encouraged to work on impactful projects and enhance technical expertise.",
+      "department": "Software Development",
+      "educationQualification": "B.Tech/M.Tech in Computer Science",
+      "tags": ["Java", "Spring Boot", "REST APIs", "Enterprise Applications"],
+      "designation": "Java Developer"
+    }
+  },
+  {
+    "id": 29,
+    "company": "Cognizant",
+    "location": "Chennai",
+    "title": "Data Analyst",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$3000/month",
+    "logo": "assets/logos/cognizant.png",
+    "description": {
+      "jobOverview": "Cognizant is hiring a Data Analyst to extract, analyze, and visualize data for business insights and decision-making.",
+      "responsibilities": [
+        "Collect, clean, and analyze large datasets.",
+        "Develop reports, dashboards, and visualizations.",
+        "Collaborate with business teams to interpret data.",
+        "Provide actionable insights and recommendations."
+      ],
+      "skillsRequired": [
+        "Proficiency in SQL, Excel, and data visualization tools (Power BI, Tableau).",
+        "Strong analytical and problem-solving skills.",
+        "Knowledge of Python/R for data analysis is a plus.",
+        "Excellent communication skills to present insights."
+      ],
+      "growthAndCulture": "Cognizant encourages learning, innovation, and collaboration. Analysts work on cross-domain projects and gain exposure to industry best practices.",
+      "department": "Data Analytics",
+      "educationQualification": "B.Tech/M.Sc in Data Science, Statistics, or related field",
+      "tags": ["Data Analysis", "SQL", "Power BI", "Analytics"],
+      "designation": "Data Analyst"
+    }
+  },
+  {
+    "id": 30,
+    "company": "Zoho",
+    "location": "Chennai",
+    "title": "Mobile App Developer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$3000/month",
+    "logo": "assets/logos/zoho.png",
+    "description": {
+      "jobOverview": "Zoho is seeking a Mobile App Developer to design and develop high-quality Android and iOS applications using Flutter and native technologies.",
+      "responsibilities": [
+        "Develop mobile applications for Android and iOS platforms.",
+        "Integrate with backend services and APIs.",
+        "Participate in testing, debugging, and code reviews.",
+        "Collaborate with UI/UX designers and product managers."
+      ],
+      "skillsRequired": [
+        "Proficiency in Flutter, Kotlin, Swift, or Java.",
+        "Experience with mobile API integration and databases.",
+        "Strong understanding of mobile app lifecycle and design patterns.",
+        "Familiarity with Agile development methodologies."
+      ],
+      "growthAndCulture": "Zoho encourages creativity, learning, and teamwork. Developers get opportunities to work on innovative mobile applications.",
+      "department": "Mobile Development",
+      "educationQualification": "B.Tech/M.Tech in Computer Science",
+      "tags": ["Mobile Development", "Flutter", "Android", "iOS"],
+      "designation": "Mobile App Developer"
+    }
+  },
+  {
+    "id": 31,
+    "company": "Salesforce",
+    "location": "USA",
+    "title": "Salesforce Developer",
+    "positions": 3,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$6500/month",
+    "logo": "assets/logos/salesforce.png",
+    "description": {
+      "jobOverview": "Salesforce is hiring a Salesforce Developer to build custom solutions on the Salesforce platform and enhance CRM functionalities.",
+      "responsibilities": [
+        "Develop Apex classes, triggers, and Visualforce pages.",
+        "Integrate Salesforce with external systems via APIs.",
+        "Participate in requirement analysis and code reviews.",
+        "Ensure code quality and follow Salesforce best practices."
+      ],
+      "skillsRequired": [
+        "Experience with Salesforce, Apex, and Lightning Components.",
+        "Knowledge of Salesforce integrations and APIs.",
+        "Strong problem-solving and communication skills.",
+        "Understanding of Agile methodologies."
+      ],
+      "growthAndCulture": "Salesforce fosters a culture of innovation, collaboration, and learning. Developers work on impactful global CRM solutions.",
+      "department": "CRM Development",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or IT",
+      "tags": ["Salesforce", "Apex", "CRM", "Lightning"],
+      "designation": "Salesforce Developer"
+    }
+  },
+  {
+    "id": 32,
+    "company": "Atos",
+    "location": "Paris",
+    "title": "Cybersecurity Analyst",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$5000/month",
+    "logo": "assets/logos/atos.png",
+    "description": {
+      "jobOverview": "Atos is looking for a Cybersecurity Analyst to monitor, detect, and respond to security incidents and ensure enterprise systems are secure.",
+      "responsibilities": [
+        "Monitor network and system security alerts.",
+        "Investigate and respond to security incidents.",
+        "Conduct vulnerability assessments and penetration testing.",
+        "Implement security policies and procedures."
+      ],
+      "skillsRequired": [
+        "Experience with cybersecurity tools and protocols.",
+        "Knowledge of firewalls, IDS/IPS, and encryption methods.",
+        "Strong analytical and problem-solving skills.",
+        "Familiarity with cloud security and compliance standards."
+      ],
+      "growthAndCulture": "Atos encourages innovation, collaboration, and continuous learning. Analysts work on cutting-edge security projects for global clients.",
+      "department": "Cybersecurity",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or Information Security",
+      "tags": ["Cybersecurity", "Network Security", "Penetration Testing", "Threat Analysis"],
+      "designation": "Cybersecurity Analyst"
+    }
+  },
+  {
+    "id": 33,
+    "company": "HP",
+    "location": "Texas",
+    "title": "UI/UX Designer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "2 years",
+    "salary": "$3500/month",
+    "logo": "assets/logos/hp.png",
+    "description": {
+      "jobOverview": "HP is hiring a UI/UX Designer to create user-friendly and visually appealing interfaces for web and mobile applications.",
+      "responsibilities": [
+        "Design wireframes, mockups, and prototypes.",
+        "Collaborate with developers to implement designs.",
+        "Conduct user research and usability testing.",
+        "Ensure design consistency and accessibility standards."
+      ],
+      "skillsRequired": [
+        "Proficiency in Figma, Adobe XD, Sketch, or similar tools.",
+        "Strong understanding of user-centered design principles.",
+        "Ability to create responsive and interactive designs.",
+        "Good communication and teamwork skills."
+      ],
+      "growthAndCulture": "HP encourages creativity, innovation, and professional development. Designers work on diverse products and user experiences.",
+      "department": "Design",
+      "educationQualification": "B.Des/M.Des in UI/UX Design or related field",
+      "tags": ["UI/UX", "Design", "Wireframes", "User Experience"],
+      "designation": "UI/UX Designer"
+    }
+  },
+  {
+    "id": 34,
+    "company": "Cisco",
+    "location": "USA",
+    "title": "Cloud Network Engineer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$6500/month",
+    "logo": "assets/logos/cisco.png",
+    "description": {
+      "jobOverview": "Cisco is seeking a Cloud Network Engineer to design, deploy, and maintain cloud-based network solutions ensuring high availability and security.",
+      "responsibilities": [
+        "Design and implement cloud network infrastructure.",
+        "Monitor network performance and troubleshoot issues.",
+        "Work on cloud security, routing, and connectivity.",
+        "Collaborate with cloud architects and IT teams."
+      ],
+      "skillsRequired": [
+        "Experience with Cisco networking devices and cloud platforms.",
+        "Knowledge of routing, VPNs, and security protocols.",
+        "Strong problem-solving and analytical skills.",
+        "Familiarity with DevOps and CI/CD pipelines."
+      ],
+      "growthAndCulture": "Cisco encourages innovation, collaboration, and learning. Engineers gain exposure to global-scale cloud networking projects.",
+      "department": "Networking",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or Networking",
+      "tags": ["Cloud Networking", "Cisco", "VPN", "Routing"],
+      "designation": "Cloud Network Engineer"
+    }
+  },
+  {
+    "id": 35,
+    "company": "Infosys",
+    "location": "Hyderabad",
+    "title": "AI/ML Engineer",
+    "positions": 2,
+    "type": "Full-time",
+    "experience": "3 years",
+    "salary": "$6000/month",
+    "logo": "assets/logos/infosys.png",
+    "description": {
+      "jobOverview": "Infosys is hiring an AI/ML Engineer to build machine learning models and AI-driven solutions for enterprise applications.",
+      "responsibilities": [
+        "Develop and deploy machine learning models using Python, TensorFlow, or PyTorch.",
+        "Analyze large datasets and extract actionable insights.",
+        "Collaborate with product and development teams to integrate AI solutions.",
+        "Participate in research and innovation for AI projects."
+      ],
+      "skillsRequired": [
+        "Strong experience with Python, ML libraries, and algorithms.",
+        "Knowledge of data preprocessing, feature engineering, and model evaluation.",
+        "Experience with cloud platforms for AI deployment.",
+        "Strong analytical and problem-solving abilities."
+      ],
+      "growthAndCulture": "Infosys promotes continuous learning, research, and innovation. AI/ML engineers get opportunities to work on cutting-edge projects.",
+      "department": "AI/ML",
+      "educationQualification": "B.Tech/M.Tech in Computer Science or AI/ML",
+      "tags": ["AI", "Machine Learning", "Python", "Deep Learning"],
+      "designation": "AI/ML Engineer"
+    }
+  }
+]

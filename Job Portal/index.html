@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <header class="header" id="mainHeader">
+        <div class="logo">JobPortal</div>
+
+        <div class="authorization">
+            <button class="sign-in-btn">Sign in</button>
+            <button class="register-btn">Register</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Search,Apply & Get Your Dream Job</h1>
+            <p>Browse job openings that align with your skills, goals, and where you want to go next.</p>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search by Job title or Company" />
+
+                <select id="location">
+                    <option value="">Select Location</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="USA">USA</option>
+                    <option value="Seattle">Seattle</option>
+                    <option value="California">California</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="New York">New York</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Texas">Texas</option>
+                    <option value="Germany">Germany</option>
+                    <option value="India">India</option>
+                    <option value="Noida">Noida</option>
+                    <option value="France">France</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Chennai">Chennai</option>
+                </select>
+
+                <select id="jobType">
+                    <option value="">Job Type</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Remote">Remote</option>
+                </select>
+
+                <button id="search-btn">Find Jobs</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="job-section">
+        <div class="container">
+
+            <div class="job-layout">
+
+                <aside class="filter-box">
+                    <h3>Filter Jobs</h3>
+
+                    <label>Location</label>
+                    <select id="filterLocation">
+                        <option value="">All</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="USA">USA</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="California">California</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="New York">New York</option>
+                        <option value="Pune">Pune</option>
+                    </select>
+
+                    <label>Job Type</label>
+                    <select id="filterType">
+                        <option value="">All</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+
+                    <label>Experience</label>
+                    <select id="filterExperience">
+                        <option value="">All</option>
+                        <option value="1 years">1 years</option>
+                        <option value="2 years">2 years</option>
+                        <option value="3 years">3 years</option>
+                        <option value="4 years">4 years</option>
+                        <option value="5 years">5 years</option>
+                    </select>
+
+                    <button id="filterBtn">Apply Filters</button>
+                </aside>
+
+            <div id="jobList" class="job-list"></div>
+
+            </div>
+
+            <div id="jobDescriptionBox" class="hidden">
+              <div id="jobDescriptionContent"></div>
+
+              <div class="close-btn-wrapper">
+                <button id="closeDescBtn">Close</button>
+              </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+
