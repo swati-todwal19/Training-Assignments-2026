@@ -33,29 +33,9 @@ body {
     font-weight: bold;
 }
 
-.authorization button {
-    margin-left: 10px;
-    padding: 7px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    border: none;
-    font-weight: 500;
-}
-
-.sign-in-btn {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
-}
-
-.register-btn {
-    background: rgb(50, 50, 223);
-    color: #fff;
-}
-
 .hero {
     height: 75vh;
-    background-image: url("../assets/images/background-img.jpg");
+    background-image: url("../assets/images/image.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -81,38 +61,6 @@ body {
 .hero p {
     font-size: 1.1rem;
     margin-bottom: 30px;
-}
-
-.search-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 50px;
-}
-
-.search-box input,
-.search-box select {
-    padding: 12px;
-    border-radius: 4px;
-    border: none;
-    min-width: 220px;
-}
-
-.search-box button {
-    padding: 12px 24px;
-    border-radius: 4px;
-    border: none;
-    background: rgb(50, 50, 223);
-    color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.job-section {
-    background: #f8f8f8;
-    padding: 70px 20px;
-    min-height: 100vh;
 }
 
 .container {

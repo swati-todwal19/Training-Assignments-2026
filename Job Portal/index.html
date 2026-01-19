@@ -5,56 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Portal</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="components/searchBox/searchBox.css">
+
 </head>
 <body>
-    <header class="header" id="mainHeader">
-        <div class="logo">JobPortal</div>
 
-        <div class="authorization">
-            <button class="sign-in-btn">Sign in</button>
-            <button class="register-btn">Register</button>
-        </div>
-    </header>
+    <div id="header">
+        <header class="header" id="mainHeader">
+           <div class="logo">JobPortal</div>
+        </header>
+    </div>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Search,Apply & Get Your Dream Job</h1>
-            <p>Browse job openings that align with your skills, goals, and where you want to go next.</p>
-
-            <div class="search-box">
-                <input type="text" placeholder="Search by Job title or Company" />
-
-                <select id="location">
-                    <option value="">Select Location</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="USA">USA</option>
-                    <option value="Seattle">Seattle</option>
-                    <option value="California">California</option>
-                    <option value="Los Angeles">Los Angeles</option>
-                    <option value="New York">New York</option>
-                    <option value="Pune">Pune</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Hyderabad">Hyderabad</option>
-                    <option value="Texas">Texas</option>
-                    <option value="Germany">Germany</option>
-                    <option value="India">India</option>
-                    <option value="Noida">Noida</option>
-                    <option value="France">France</option>
-                    <option value="Paris">Paris</option>
-                    <option value="Chennai">Chennai</option>
-                </select>
-
-                <select id="jobType">
-                    <option value="">Job Type</option>
-                    <option value="Full-time">Full-time</option>
-                    <option value="Part-time">Part-time</option>
-                    <option value="Remote">Remote</option>
-                </select>
-
-                <button id="search-btn">Find Jobs</button>
-            </div>
+           <h1>Search,Apply & Get Your Dream Job</h1>
+           <p>Browse job openings that align with your skills, goals, and where you want to go next.</p>
         </div>
+
+        <div id="searchBox"></div>
     </section>
+
+    <div id="jobList"></div>
 
     <main class="job-section">
         <div class="container">
@@ -113,8 +84,9 @@
             </div>
         </div>
     </main>
-
-    <script src="js/app.js"></script>
+  
+  <script src="components/searchBox/searchBox.js"></script>  
+  <script src="components/jobCard/jobCard.js"></script>
 </body>
 </html>
 
