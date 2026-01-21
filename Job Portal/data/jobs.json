@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "company": "Amazon",
+    "company": "Google",
     "location": "USA",
     "title": "Software Engineer",
     "positions": 5,
@@ -127,7 +127,7 @@
     "id": 5,
     "company": "Apple",
     "location": "USA",
-    "title": "iOS Developer",
+    "title": "IOS Developer",
     "positions": 3,
     "type": "Remote",
     "experience": "1 year",
@@ -151,7 +151,7 @@
       "department": "Mobile Development",
       "educationQualification": "B.Tech/M.Tech in Computer Science or related field",
       "tags": ["iOS", "Mobile Development", "Swift", "Objective-C"],
-      "designation": "iOS Developer"
+      "designation": "IOS Developer"
     }
   },
   {
@@ -533,7 +533,7 @@
     "title": "Software Tester",
     "positions": 3,
     "type": "Remote",
-    "experience": "1 yeae",
+    "experience": "1 year",
     "salary": "$2300/month",
     "logo": "assets/logos/cognizant.png",
     "description": {
