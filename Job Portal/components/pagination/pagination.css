@@ -1,0 +1,59 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.pagination #prev,
+.pagination #next {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+.pagination #prev:hover,
+.pagination #next:hover {
+  background-color: rgb(50,50,223);
+  color: #fff;
+  border-color: rgb(50,50,223);
+}
+
+#pages {
+  display: flex;
+  gap: 6px;
+}
+
+#pages button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#pages button:hover:not(:disabled) {
+  background-color: rgb(50,50,223);
+  color: #fff;
+  border-color: rgb(50,50,223);
+}
+
+#pages button.active {
+  background-color: rgb(50,50,223);
+  color: #fff;
+  font-weight: bold;
+  border-color: rgb(50,50,223);
+}
+
+#pages button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
