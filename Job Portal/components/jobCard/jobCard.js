@@ -1,41 +1,81 @@
+const jobListEl = document.getElementById("jobList");
 
-function renderJobCard(job) {
+export function renderJobCard(job) {
+  const card = document.createElement("div");
+  card.className = "job-card";
 
-  fetch("components/jobCard/jobCard.html")
-    .then(response => response.text())
-    .then(template => {
-      template = template
-        .replace("{{logo}}", job.logo)
-        .replace("{{company}}", job.company)
-        .replace("{{location}}", job.location)
-        .replace("{{title}}", job.title)
-        .replace("{{positions}}", job.positions)
-        .replace("{{type}}", job.type)
-        .replace("{{experience}}", job.experience)
-        .replace("{{salary}}", job.salary);
+  card.innerHTML = `
+    <div class="card-header">
+      <div class="company-section">
+        <img src="${job.logo}" class="company-logo" alt="${job.company}" />
+        <div class="company-text">
+          <div class="company-name">${job.company}</div>
+          <div class="company-location">${job.location}</div>
+        </div>
+      </div>
+    </div>
 
-      const card = document.createElement("div");
-      card.className = "job-card";
-      card.innerHTML = template;
+    <div class="job-title">${job.title}</div>
 
-      const viewBtn = card.querySelector(".view-details-btn");
-      viewBtn.addEventListener("click", () => {
-        jobDescriptionContent.innerHTML = renderJobDescription(job.description);
-        jobDescriptionBox.classList.remove("hidden");
+    <div class="job-meta">
+      <span class="tag">${job.positions} Positions</span>
+      <span class="tag">${job.type}</span>
+      <span class="tag">${job.experience}</span>
+      <span class="job-salary">${job.salary}</span>
+    </div>
 
-        document.body.style.overflow = "hidden";
+    <div class="job-actions">
+      <button class="click" data-id="${job.id}">Click View Details</button>
+    </div>
+  `;
 
-        const closeDescBtn = document.getElementById("closeDescBtn");
-        closeDescBtn.addEventListener("click", () => {
-          jobDescriptionBox.classList.add("hidden");
-          jobDescriptionContent.innerHTML = "";
-          document.body.style.overflow = "auto";
-        });
-      });
+  //navigation
+  card.querySelector(".click").onclick = () => {
+    window.location.href = `jobDetails.html?id=${job.id}`;
+  };
 
-      jobListEl.appendChild(card);
-    })
-    .catch(error => {
-      console.error("Error loading job card template:", error);
-    });
+  return card; 
 }
+
+export function renderDefaultJobs(jobs) {
+  jobListEl.innerHTML = "";
+
+  const uniqueRoles = [...new Set(jobs.map(job => job.title))];
+
+  uniqueRoles.forEach(role => {
+    const job = jobs.find(job => job.title === role);
+    jobListEl.appendChild(renderJobCard(job));
+  });
+}
+
+export function renderJobs(jobs) {
+  jobListEl.innerHTML = "";
+
+  if (jobs.length === 0) {
+    jobListEl.innerHTML = "<p>No jobs found.</p>";
+    return;
+  }
+
+  jobs.forEach(job => {
+    jobListEl.appendChild(renderJobCard(job));
+  });
+
+}
+
+//for pagination
+export function renderJobsForPagination(jobsSlice) {
+  const jobListEl = document.getElementById("jobList");
+  jobListEl.innerHTML = "";
+
+  if (jobsSlice.length === 0) {
+    jobListEl.innerHTML = "<p>No jobs found.</p>";
+    return;
+  }
+
+  jobsSlice.forEach(job => {
+    jobListEl.appendChild(renderJobCard(job));
+  });
+}
+
+
+

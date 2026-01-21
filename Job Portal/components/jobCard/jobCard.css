@@ -1,0 +1,114 @@
+#jobList {
+    display: flex;
+    flex-wrap: wrap;       
+    justify-content: flex-start; 
+    align-items: start;
+    gap: 20px;
+}
+
+
+.job-card {
+    width: 310px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 18px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    border: 2px solid #b1bae4;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.company-section {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.company-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.company-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+
+.company-location {
+    font-size: 12px;
+    color: gray;
+}
+
+.job-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 12px 0 6px;
+}
+
+.job-description {
+    font-size: 13px;
+    color: #666;
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.job-meta .tag {
+    background: #eef1ff;
+    color: #5a67d8;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.job-salary {
+    font-size: 12px;
+    color: rgb(93, 189, 93);
+    margin-top: 8px;
+    background: rgb(196, 243, 196); 
+    border-radius: 20px;
+    padding: 4px 10px;
+    display: inline-block;
+}
+
+.job-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.job-actions .click {
+    padding: 8px 14px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.job-actions .click:hover {
+    background: #5848e5;
+}
