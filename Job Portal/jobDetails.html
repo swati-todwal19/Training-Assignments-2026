@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Job Details</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="components/jobCard/jobCard.css">
+  <link rel="stylesheet" href="components/jobDescription/jobDescription.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">JobPortal</div>
+  </header>
+
+  <main class="job-details-page">
+    <a id="backLink" href="index.html">← Back to jobs search</a>
+
+    <div id="jobDescription"></div>
+  </main>
+
+  <script type="module">
+    import { initJobDescription } from "./components/jobDescription/jobDescription.js";
+    initJobDescription();
+  </script>
+</body>
+</html>
