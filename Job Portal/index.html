@@ -6,7 +6,9 @@
     <title>Job Portal</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="components/searchBox/searchBox.css">
-
+    <link rel="stylesheet" href="components/filters/filters.css">
+    <link rel="stylesheet" href="components/jobCard/jobCard.css">
+    <link rel="stylesheet" href="components/pagination/pagination.css">
 </head>
 <body>
 
@@ -22,71 +24,45 @@
            <p>Browse job openings that align with your skills, goals, and where you want to go next.</p>
         </div>
 
-        <div id="searchBox"></div>
+        <div class="search-container">
+          <input
+            type="text"
+            id="globalSearchInput"
+            placeholder="Search jobs by title, location or job type"
+          />
+          <button id="search-btn">Find Jobs</button>
+        </div>
     </section>
 
-    <div id="jobList"></div>
+    <main>
+        <aside class="filter-box">
+        <h3>Filter Jobs</h3>
 
-    <main class="job-section">
-        <div class="container">
+        <label>Location</label>
+        <select id="filterLocation" multiple></select>
 
-            <div class="job-layout">
+        <label>Job Type</label>
+        <select id="filterType"></select>
 
-                <aside class="filter-box">
-                    <h3>Filter Jobs</h3>
+        <label>Experience</label>
+        <select id="filterExperience"></select>
 
-                    <label>Location</label>
-                    <select id="filterLocation">
-                        <option value="">All</option>
-                        <option value="Bangalore">Bangalore</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Hyderabad">Hyderabad</option>
-                        <option value="USA">USA</option>
-                        <option value="Seattle">Seattle</option>
-                        <option value="California">California</option>
-                        <option value="Los Angeles">Los Angeles</option>
-                        <option value="New York">New York</option>
-                        <option value="Pune">Pune</option>
-                    </select>
+        <button id="filterBtn">Apply Filters</button>
+        </aside>
 
-                    <label>Job Type</label>
-                    <select id="filterType">
-                        <option value="">All</option>
-                        <option value="Full-time">Full-time</option>
-                        <option value="Part-time">Part-time</option>
-                        <option value="Remote">Remote</option>
-                    </select>
-
-                    <label>Experience</label>
-                    <select id="filterExperience">
-                        <option value="">All</option>
-                        <option value="1 years">1 years</option>
-                        <option value="2 years">2 years</option>
-                        <option value="3 years">3 years</option>
-                        <option value="4 years">4 years</option>
-                        <option value="5 years">5 years</option>
-                    </select>
-
-                    <button id="filterBtn">Apply Filters</button>
-                </aside>
-
-            <div id="jobList" class="job-list"></div>
-
-            </div>
-
-            <div id="jobDescriptionBox" class="hidden">
-              <div id="jobDescriptionContent"></div>
-
-              <div class="close-btn-wrapper">
-                <button id="closeDescBtn">Close</button>
-              </div>
-            </div>
-        </div>
+        <div id="jobList"></div>
     </main>
+
+    <div id="list"></div>
+
+    <div class="pagination">
+        <button id="prev">Previous</button>
+        <div id="pages"></div>
+        <button id="next">Next</button>
+    </div>
   
-  <script src="components/searchBox/searchBox.js"></script>  
-  <script src="components/jobCard/jobCard.js"></script>
+    <script type="module" src="./script.js"></script>
+
 </body>
 </html>
 
