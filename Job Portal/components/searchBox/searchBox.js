@@ -1,12 +1,8 @@
-fetch("components/searchBox/searchBox.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("searchBox").innerHTML = html;
+export function initSearchBox(allJobs, renderJobsCallback, renderDefaultJobs) {
+  const searchInput = document.querySelector("#globalSearchInput");
+  const searchBtn = document.getElementById("search-btn");
 
-const searchInput = document.querySelector(".search-box input");
-const searchBtn = document.getElementById("search-btn");
-
-searchBtn.addEventListener("click", () => {
+  searchBtn.addEventListener("click", () => {
   const searchText = searchInput.value.trim().toLowerCase();
   
   if (!searchText) {
@@ -26,7 +22,7 @@ searchBtn.addEventListener("click", () => {
     );
   });
 
-  renderJobs(filteredJobs);
-  });
+  renderJobsCallback(filteredJobs);
 
-})
+  });
+}
