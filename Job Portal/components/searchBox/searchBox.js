@@ -11,16 +11,14 @@ export function initSearchBox(allJobs, renderJobsCallback, renderDefaultJobs) {
   }
 
   const filteredJobs = allJobs.filter(job => {
-    const title = job.title.toLowerCase();
-    const location = job.location.toLowerCase();
-    const type = job.type.toLowerCase();
+  const { title, location, type } = job;   
 
-    return (
-      title.includes(searchText) ||
-      location.includes(searchText) ||
-      type.includes(searchText)
-    );
-  });
+  return (
+    title.toLowerCase().includes(searchText) ||
+    location.toLowerCase().includes(searchText) ||
+    type.toLowerCase().includes(searchText)
+  );
+});
 
   renderJobsCallback(filteredJobs);
 
