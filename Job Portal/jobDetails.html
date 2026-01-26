@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Job Details</title>
@@ -7,22 +8,64 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="components/jobCard/jobCard.css">
   <link rel="stylesheet" href="components/jobDescription/jobDescription.css" />
+  <link rel="stylesheet" href="components/resume/resumePopup.css" />
 </head>
 
 <body>
+  <div id="topAlert" class="top-alert">Resume uploaded successfully</div>
+
   <header class="header">
     <div class="logo">JobPortal</div>
   </header>
 
   <main class="job-details-page">
     <a id="backLink" href="index.html">← Back to jobs search</a>
-
     <div id="jobDescription"></div>
   </main>
 
+  <div id="resumeModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+
+      <h3 class="heading">Guidelines :</h3>
+      <ul class="guidelines">
+        <li><span>The file should not contain images or hyperlinks</span></li>
+        <li><span>The filename should be short and without spaces</span></li>
+        <li><span>The file size should not exceed 5 MB</span></li>
+      </ul>
+
+      <input type="file" id="resumeInput" accept=".pdf,.doc,.docx" data-job-id="" data-job-title="" hidden />
+
+      <button id="uploadBtn" class="upload-btn">UPLOAD</button>
+    </div>
+  </div>
+
+  <div id="uploadSuccessModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeSuccessModal">&times;</span>
+      <h3 class="heading" id="successRoleName"></h3>
+      <p>Thank you for uploading your resume for this role.</p>
+      <div class="uploaded-file">
+        <span id="uploadedFileName"></span>
+        <span class="remove-file" id="removeUploadedFile">&times;</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="uploadFailureModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeFailureModal">&times;</span>
+      <h3 class="heading">Upload Failed</h3>
+      <p>This file does not match the guidelines:</p>
+      <ul id="failureErrors"></ul>
+    </div>
+  </div>
+
+  <script type="module" src="./components/resume/resumePopup.js"></script>
   <script type="module">
     import { initJobDescription } from "./components/jobDescription/jobDescription.js";
     initJobDescription();
   </script>
 </body>
+
 </html>
