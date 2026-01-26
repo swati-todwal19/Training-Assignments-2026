@@ -1,3 +1,5 @@
+import { SESSION_STORAGE_KEYS } from "../../constantFile.js";
+
 export function initSort(jobs, handleSortedJobs) {
   const searchInput = document.getElementById("globalSearchInput");
   if (!searchInput || !Array.isArray(jobs)) return;
@@ -31,6 +33,28 @@ export function initSort(jobs, handleSortedJobs) {
     wrapper.appendChild(dropdown);
   }
 
+  const savedSort = sessionStorage.getItem(SESSION_STORAGE_KEYS.SORT) || "";
+  if (savedSort) {
+    dropdown.value = savedSort;
+  }
+
+  function applySort(value, currentJobs) {
+    const [key, order] = value.split("-");
+    if (!key) {
+      handleSortedJobs(currentJobs); 
+      return;
+    }
+
+    const sortedJobs = [...currentJobs].sort((a, b) => {
+      return order === "asc"
+        ? a.company.localeCompare(b.company)
+        : b.company.localeCompare(a.company);
+    });
+
+    handleSortedJobs(sortedJobs);
+    sessionStorage.setItem(SESSION_STORAGE_KEYS.SORT, value);
+  }
+
   sortIcon.onclick = (e) => {
     e.stopPropagation();
     dropdown.style.display =
@@ -38,15 +62,14 @@ export function initSort(jobs, handleSortedJobs) {
   };
 
   dropdown.onchange = () => {
-    const [key, order] = dropdown.value.split("-");
-    if (!key) return;
-
-    const sortedJobs = [...jobs].sort((a, b) => {
-      return order === "asc"
-        ? a.company.localeCompare(b.company)
-        : b.company.localeCompare(a.company);
-    });
-
-    handleSortedJobs(sortedJobs);
+    const currentJobs = document.querySelectorAll(".job-card"); 
+    applySort(dropdown.value, jobs);
   };
+
+  if (savedSort) {
+    applySort(savedSort, jobs);
+  }
 }
+
+
+
