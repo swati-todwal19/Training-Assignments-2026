@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,60 +10,85 @@
     <link rel="stylesheet" href="components/filters/filters.css">
     <link rel="stylesheet" href="components/jobCard/jobCard.css">
     <link rel="stylesheet" href="components/pagination/pagination.css">
+    <link rel="stylesheet" href="components/bookmark/bookmark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="components/sort/sort.css">
+    <link rel="stylesheet" href="components/savedJobs/savedJobs.css">
 </head>
+
 <body>
+
+    <div id="bookmarkSection">
+        <span id="bookmarkHeader">
+            <i class="far fa-folder"></i>
+            All Bookmarks
+        </span>
+
+        <span id="savedJobsHeaderIcon" title="Saved Jobs">
+            <i class="far fa-envelope"></i>
+        </span>
+    </div>
 
     <div id="header">
         <header class="header" id="mainHeader">
-           <div class="logo">JobNest</div>
+            <div class="logo">JobNest</div>
         </header>
+    </div>
+
+    <div id="bookmarkPanel">
+        <div class="bookmark-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="bookmarkSearchInput" placeholder="Search bookmarks" />
+        </div>
+
+        <h3 class="bookmark-heading">All Bookmarks</h3>
+
+        <div class="bookmark-list"></div>
     </div>
 
     <section class="hero">
         <div class="hero-content">
-           <h1>Search,Apply & Get Your Dream Job</h1>
-           <p>Browse job openings that align with your skills, goals, and where you want to go next.</p>
+            <h1>Search, Apply & Get Your Dream Job</h1>
+            <p>Browse job openings that align with your skills, goals, and where you want to go next.</p>
         </div>
 
         <div class="search-container">
-          <input
-            type="text"
-            id="globalSearchInput"
-            placeholder="Search jobs by title, location or job type"
-          />
-          <button id="search-btn">Find Jobs</button>
+            <input type="text" id="globalSearchInput" placeholder="Search jobs by title, location or job type" />
+            <i id="sortIcon" class="fas fa-sort"></i>
+            <button id="search-btn">Find Jobs</button>
         </div>
     </section>
 
     <main>
         <aside class="filter-box">
-        <h3>Filter Jobs</h3>
+            <h3>Filter Jobs</h3>
 
-        <label>Location</label>
-        <select id="filterLocation" multiple></select>
+            <label>Location</label>
+            <select id="filterLocation" multiple></select>
 
-        <label>Job Type</label>
-        <select id="filterType"></select>
+            <label>Job Type</label>
+            <select id="filterType"></select>
 
-        <label>Experience</label>
-        <select id="filterExperience"></select>
+            <label>Experience</label>
+            <select id="filterExperience"></select>
 
-        <button id="filterBtn">Apply Filters</button>
+            <button id="filterBtn">Apply Filters</button>
         </aside>
 
         <div id="jobList"></div>
     </main>
-
-    <div id="list"></div>
 
     <div class="pagination">
         <button id="prev">Previous</button>
         <div id="pages"></div>
         <button id="next">Next</button>
     </div>
-  
+
     <script type="module" src="./script.js"></script>
+    <script type="module" src="components/bookmark/bookmark.js"></script>
+    <script type="module" src="components/sort/sort.js"></script>
+    <script type="module" src="components/savedJobs/savedJobsIcon.js"></script>
 
 </body>
-</html>
 
+</html>
