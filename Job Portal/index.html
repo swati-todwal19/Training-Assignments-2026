@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="components/searchBox/searchBox.css">
+    <link rel="stylesheet" href="components/filters/filters.css">
+    <link rel="stylesheet" href="components/jobCard/jobCard.css">
+    <link rel="stylesheet" href="components/pagination/pagination.css">
+</head>
+<body>
+
+    <div id="header">
+        <header class="header" id="mainHeader">
+           <div class="logo">JobNest</div>
+        </header>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+           <h1>Search,Apply & Get Your Dream Job</h1>
+           <p>Browse job openings that align with your skills, goals, and where you want to go next.</p>
+        </div>
+
+        <div class="search-container">
+          <input
+            type="text"
+            id="globalSearchInput"
+            placeholder="Search jobs by title, location or job type"
+          />
+          <button id="search-btn">Find Jobs</button>
+        </div>
+    </section>
+
+    <main>
+        <aside class="filter-box">
+        <h3>Filter Jobs</h3>
+
+        <label>Location</label>
+        <select id="filterLocation" multiple></select>
+
+        <label>Job Type</label>
+        <select id="filterType"></select>
+
+        <label>Experience</label>
+        <select id="filterExperience"></select>
+
+        <button id="filterBtn">Apply Filters</button>
+        </aside>
+
+        <div id="jobList"></div>
+    </main>
+
+    <div id="list"></div>
+
+    <div class="pagination">
+        <button id="prev">Previous</button>
+        <div id="pages"></div>
+        <button id="next">Next</button>
+    </div>
+  
+    <script type="module" src="./script.js"></script>
+
+</body>
+</html>
+

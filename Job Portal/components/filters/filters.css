@@ -1,0 +1,62 @@
+.filter-box {
+    width: 260px;             
+    flex-shrink: 0;           
+    background: #fff;         
+    padding: 20px;            
+    border-radius: 8px;       
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); 
+    font-family: Arial, sans-serif;
+}
+
+.filter-box h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.filter-box label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.filter-box select,
+.filter-box button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.filter-box select[multiple] {
+    height: 120px;           
+    overflow-y: auto;        
+    cursor: pointer;
+    background: #fff;
+}
+
+.filter-box select[multiple] option:hover {
+    background-color: #f0f0f0;
+}
+
+.filter-box select[multiple] option:checked {
+    background-color: rgb(50,50,223);
+    color: #fff;
+}
+
+.filter-box button {
+    background: rgb(50,50,223);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.filter-box button:hover {
+    background: rgb(40,40,200);
+}
