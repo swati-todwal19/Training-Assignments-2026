@@ -93,3 +93,44 @@ section ul {
   background: #1558c0;
 }
 
+.apply-btn.applied {
+  background: #1a73e8;
+  padding: 12px 0;
+  width: 150px;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.apply-btn.applied:hover {
+  background: #1558c0;
+  transform: none;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.header .logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.job-details-page {
+  padding-top: 70px;
+  margin-top: 0;
+}
