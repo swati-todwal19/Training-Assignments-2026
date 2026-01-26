@@ -1,0 +1,154 @@
+.job-card .bookmark-star {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.job-card .bookmark-star.bookmarked {
+  color: #1a73e8;
+  transform: scale(1.2);
+}
+
+#bookmarkSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  background: #fff;
+  padding: 4px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  font-size: 13px;
+}
+
+#bookmarkHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+#bookmarkHeader i {
+  font-size: 16px;
+  color: #555;
+  transition: color 0.3s;
+}
+
+#bookmarkHeader.active i {
+  color: #1a73e8;
+}
+
+#bookmarkIcon {
+  font-size: 18px;
+  color: #1a73e8;
+}
+
+#bookmarkText {
+  font-size: 14px;
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+#header {
+  margin-top: 28px;
+}
+
+#bookmarkPanel {
+  position: fixed;
+  top: 60px;
+  right: -400px;
+  width: 350px;
+  height: calc(100% - 50px);
+  background: #fff;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid #ddd;
+  padding: 20px;
+  overflow-y: auto;
+  transition: right 0.3s;
+  z-index: 9999;
+}
+
+#bookmarkPanel.open {
+  right: 0;
+}
+
+.bookmark-search {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.bookmark-search input {
+  width: 100%;
+  padding: 6px 10px 6px 30px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.bookmark-search i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #888;
+  pointer-events: none;
+}
+
+.bookmark-heading {
+  font-weight: 500px;
+  font-size: 15px;
+  margin: 10px 0 10px 0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+#bookmarkPanel h3 {
+  margin-top: 0;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.bookmark-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.bookmark-item.applied {
+  font-weight: bold;
+  color: #1a73e8;
+}
+
+.bookmark-item .remove-btn {
+  cursor: pointer;
+  color: red;
+  font-size: 14px;
+}
+
+.bookmark-item:hover {
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding-left: 4px;
+}
+
+#bookmarkPanel::-webkit-scrollbar {
+  width: 6px;
+}
+
+#bookmarkPanel::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
