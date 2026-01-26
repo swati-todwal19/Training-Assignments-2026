@@ -2,6 +2,7 @@ import { initSearchBox } from "./components/searchBox/searchBox.js";
 import { initFilters } from "./components/filters/filters.js";
 import { renderJobsForPagination, renderDefaultJobs } from "./components/jobCard/jobCard.js";
 import { initPagination } from "./components/pagination/pagination.js";
+import { initSort } from "./components/sort/sort.js";
 
 let allJobs = [];
 
@@ -15,6 +16,10 @@ fetch("data/jobs.json")
     initFilters(allJobs, jobs => initPagination(jobs, renderJobsForPagination, 6));
 
     initSearchBox(allJobs, jobs => initPagination(jobs, renderJobsForPagination, 6), renderDefaultJobs);
+
+    initSort(allJobs, (sortedJobs) => {
+      initPagination(sortedJobs, renderJobsForPagination, 6);
+    });
 
   })
   .catch(err => console.error("Error loading jobs:", err));
