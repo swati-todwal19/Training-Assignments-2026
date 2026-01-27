@@ -69,7 +69,7 @@ function renderBookmarkPanel() {
     console.error("Invalid bookmarked jobs in localStorage:", e);
     bookmarks = [];
   }
-  
+
   if (!Array.isArray(bookmarks)) bookmarks = [];
 
   if (!bookmarkPanel) return;
