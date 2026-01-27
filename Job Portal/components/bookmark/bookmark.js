@@ -4,7 +4,14 @@ const bookmarkHeader = document.getElementById("bookmarkHeader");
 const bookmarkPanel = document.getElementById("bookmarkPanel");
 
 export function initBookmarkModule(jobCards) {
-  let bookmarks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.BOOKMARKED_JOBS)) ?? [];
+  let bookmarks = [];
+  try {
+    bookmarks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.BOOKMARKED_JOBS)) ?? [];
+  } catch (e) {
+    console.error("Invalid bookmarked jobs in localStorage:", e);
+    bookmarks = [];
+  }
+
   if (!Array.isArray(bookmarks)) bookmarks = [];
 
   if (!jobCards || !jobCards.forEach) return;
@@ -55,7 +62,14 @@ export function initBookmarkModule(jobCards) {
 }
 
 function renderBookmarkPanel() {
-  let bookmarks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.BOOKMARKED_JOBS)) ?? [];
+  let bookmarks = [];
+  try {
+    bookmarks = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.BOOKMARKED_JOBS)) ?? [];
+  } catch (e) {
+    console.error("Invalid bookmarked jobs in localStorage:", e);
+    bookmarks = [];
+  }
+  
   if (!Array.isArray(bookmarks)) bookmarks = [];
 
   if (!bookmarkPanel) return;
