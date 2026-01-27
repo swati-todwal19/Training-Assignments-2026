@@ -1,14 +1,11 @@
 #jobList {
-    display: flex;
-    flex-wrap: wrap;       
-    justify-content: flex-start; 
-    align-items: start;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
+    align-items: start;
 }
 
-
 .job-card {
-    width: 310px;
     background: #ffffff;
     border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);

@@ -721,7 +721,7 @@
     "type": "Full-time",
     "experience": "1 year",
     "salary": "$2500/month",
-    "logo": "https://www.vectorlogo.zone/logos/hp/hp-ar21.svg",
+    "logo": "assets/logos/hp.png",
     "description": {
       "jobOverview": "HP is hiring a Hardware Technician to install, maintain, and repair hardware components for laptops, desktops, and servers.",
       "responsibilities": [

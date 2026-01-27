@@ -60,3 +60,11 @@
 .filter-box button:hover {
     background: rgb(40,40,200);
 }
+
+.filter-box {
+    height: fit-content;          
+    max-height: calc(100vh - 120px); 
+    overflow-y: auto;             
+    position: sticky;
+    top: 90px;                    
+}
