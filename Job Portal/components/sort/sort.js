@@ -1,75 +1,63 @@
-import { SESSION_STORAGE_KEYS } from "../../constantFile.js";
+export function initSort(allJobs, renderJobs) {
+  const searchContainer = document.querySelector(".search-container");
 
-export function initSort(jobs, handleSortedJobs) {
-  const searchInput = document.getElementById("globalSearchInput");
-  if (!searchInput || !Array.isArray(jobs)) return;
+  const wrapper = document.createElement("div");
+  wrapper.className = "search-sort-wrapper";
 
-  let wrapper = searchInput.parentElement;
-  if (!wrapper.classList.contains("search-wrapper")) {
-    wrapper = document.createElement("div");
-    wrapper.className = "search-wrapper";
-    searchInput.parentNode.insertBefore(wrapper, searchInput);
-    wrapper.appendChild(searchInput);
-  }
+  searchContainer.parentNode.insertBefore(wrapper, searchContainer);
+  wrapper.appendChild(searchContainer);
 
-  let sortIcon = wrapper.querySelector(".sort-icon");
-  if (!sortIcon) {
-    sortIcon = document.createElement("i");
-    sortIcon.className = "fas fa-sort sort-icon";
-    sortIcon.title = "Sort by Company";
-    wrapper.appendChild(sortIcon);
-  }
+  const sortSelect = document.createElement("select");
+  sortSelect.className = "sort-dropdown";
 
-  let dropdown = wrapper.querySelector(".sort-dropdown");
-  if (!dropdown) {
-    dropdown = document.createElement("select");
-    dropdown.className = "sort-dropdown";
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "Sort By";
+  sortSelect.appendChild(defaultOption);
 
-    dropdown.innerHTML = `
-      <option value="">Sort By</option>
-      <option value="company-asc">Company (A-Z)</option>
-      <option value="company-desc">Company (Z-A)</option>
-    `;
-    wrapper.appendChild(dropdown);
-  }
+  const sortTypes = [
+    { value: "company-asc", label: "Company (A - Z)" },
+    { value: "company-desc", label: "Company (Z - A)" },
+    { value: "exp-asc", label: "Experience (Low → High)" },
+    { value: "exp-desc", label: "Experience (High → Low)" }
+  ];
 
-  const savedSort = sessionStorage.getItem(SESSION_STORAGE_KEYS.SORT) || "";
-  if (savedSort) {
-    dropdown.value = savedSort;
-  }
+  sortTypes.forEach(item => {
+    const option = document.createElement("option");
+    option.value = item.value;
+    option.textContent = item.label;
+    sortSelect.appendChild(option);
+  });
 
-  function applySort(value, currentJobs) {
-    const [key, order] = value.split("-");
-    if (!key) {
-      handleSortedJobs(currentJobs); 
-      return;
+  sortSelect.addEventListener("change", () => {
+    let sortedJobs = [...allJobs];
+
+    if (sortSelect.value === "company-asc") {
+      sortedJobs.sort((a, b) =>
+        a.company.localeCompare(b.company)
+      );
     }
 
-    const sortedJobs = [...currentJobs].sort((a, b) => {
-      return order === "asc"
-        ? a.company.localeCompare(b.company)
-        : b.company.localeCompare(a.company);
-    });
+    if (sortSelect.value === "company-desc") {
+      sortedJobs.sort((a, b) =>
+        b.company.localeCompare(a.company)
+      );
+    }
 
-    handleSortedJobs(sortedJobs);
-    sessionStorage.setItem(SESSION_STORAGE_KEYS.SORT, value);
-  }
+    if (sortSelect.value === "exp-asc") {
+      sortedJobs.sort((a, b) =>
+        parseInt(a.experience) - parseInt(b.experience)
+      );
+    }
 
-  sortIcon.onclick = (e) => {
-    e.stopPropagation();
-    dropdown.style.display =
-      dropdown.style.display === "block" ? "none" : "block";
-  };
+    if (sortSelect.value === "exp-desc") {
+      sortedJobs.sort((a, b) =>
+        parseInt(b.experience) - parseInt(a.experience)
+      );
+    }
 
-  dropdown.onchange = () => {
-    const currentJobs = document.querySelectorAll(".job-card"); 
-    applySort(dropdown.value, jobs);
-  };
+    renderJobs(sortedJobs);
+  });
 
-  if (savedSort) {
-    applySort(savedSort, jobs);
-  }
+  wrapper.appendChild(sortSelect);
 }
-
-
-
