@@ -1,6 +1,5 @@
 const jobListEl = document.getElementById("jobList");
 import { initBookmarkModule } from "../bookmark/bookmark.js";
-import { initSavedJobsIcon } from "../savedJobs/savedJobsIcon.js";
 
 export function renderJobCard(job) {
   const card = document.createElement("div");
@@ -54,7 +53,6 @@ export function renderDefaultJobs(jobs) {
 
   const jobCards = document.querySelectorAll(".job-card");
   initBookmarkModule(jobCards);
-  initSavedJobsIcon(jobCards);
 }
 
 export function renderJobs(jobs) {
@@ -71,7 +69,6 @@ export function renderJobs(jobs) {
 
   const jobCards = document.querySelectorAll(".job-card");
   initBookmarkModule(jobCards);
-  initSavedJobsIcon(jobCards);
 }
 
 export function renderJobsForPagination(jobsSlice) {
@@ -89,7 +86,6 @@ export function renderJobsForPagination(jobsSlice) {
 
   const jobCards = document.querySelectorAll(".job-card");
   initBookmarkModule(jobCards);
-  initSavedJobsIcon(jobCards);
 }
 
 

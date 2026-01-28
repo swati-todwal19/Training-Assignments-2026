@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
+    justify-content: start;
     align-items: start;
 }
 
@@ -12,6 +13,9 @@
     padding: 18px;
     transition: transform 0.3s;
     cursor: pointer;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .job-card:hover {
@@ -83,7 +87,7 @@
     font-size: 12px;
     color: rgb(93, 189, 93);
     margin-top: 8px;
-    background: rgb(196, 243, 196); 
+    background: rgb(196, 243, 196);
     border-radius: 20px;
     padding: 4px 10px;
     display: inline-block;
