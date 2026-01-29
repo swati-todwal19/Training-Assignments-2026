@@ -56,6 +56,12 @@
   border-radius: 4px;
 }
 
+.apply-btn.applied {
+    background-color: #252925;  
+    color: #fff;
+    cursor: default;             
+}
+
 .heading {
   font-weight: bold;
   font-size: 16px;
