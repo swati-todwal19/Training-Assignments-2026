@@ -1,8 +1,13 @@
 const jobListEl = document.getElementById("jobList");
+import { initBookmarkModule } from "../bookmark/bookmark.js";
 
 export function renderJobCard(job) {
   const card = document.createElement("div");
   card.className = "job-card";
+
+  card.dataset.jobId = job.id;
+  card.dataset.jobTitle = job.title;
+  card.dataset.company = job.company;
 
   card.innerHTML = `
     <div class="card-header">
@@ -29,12 +34,11 @@ export function renderJobCard(job) {
     </div>
   `;
 
-  //navigation
   card.querySelector(".click").onclick = () => {
     window.location.href = `jobDetails.html?id=${job.id}`;
   };
 
-  return card; 
+  return card;
 }
 
 export function renderDefaultJobs(jobs) {
@@ -46,6 +50,9 @@ export function renderDefaultJobs(jobs) {
     const job = jobs.find(job => job.title === role);
     jobListEl.appendChild(renderJobCard(job));
   });
+
+  const jobCards = document.querySelectorAll(".job-card");
+  initBookmarkModule(jobCards);
 }
 
 export function renderJobs(jobs) {
@@ -60,9 +67,10 @@ export function renderJobs(jobs) {
     jobListEl.appendChild(renderJobCard(job));
   });
 
+  const jobCards = document.querySelectorAll(".job-card");
+  initBookmarkModule(jobCards);
 }
 
-//for pagination
 export function renderJobsForPagination(jobsSlice) {
   const jobListEl = document.getElementById("jobList");
   jobListEl.innerHTML = "";
@@ -75,7 +83,9 @@ export function renderJobsForPagination(jobsSlice) {
   jobsSlice.forEach(job => {
     jobListEl.appendChild(renderJobCard(job));
   });
-}
 
+  const jobCards = document.querySelectorAll(".job-card");
+  initBookmarkModule(jobCards);
+}
 
 

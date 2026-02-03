@@ -1,6 +1,10 @@
+import { openResumePopup } from "../resume/resumePopup.js";
+import { LOCAL_STORAGE_KEYS } from "../../constantFile.js";
+
 export function initJobDescription() {
   const container = document.getElementById("jobDescription");
   const backLink = document.getElementById("backLink");
+
   if (backLink) {
 
   }
@@ -13,8 +17,34 @@ export function initJobDescription() {
     .then(jobs => {
       const job = jobs.find(j => j.id == jobId);
       if (!job) return;
+
       renderJobDescription(job, container);
     });
+
+  document.addEventListener("resumeUploaded", (e) => {
+    const { jobTitle, jobId, fileName } = e.detail;
+
+    const applyBtn = document.querySelector(
+      `.apply-btn[data-job-id="${jobId}"]`
+    );
+    if (!applyBtn) return;
+
+    applyBtn.textContent = "Applied";
+    applyBtn.classList.add("applied");
+    applyBtn.disabled = true;
+
+    let appliedJobs =
+      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.APPLIED_JOBS)) || [];
+
+    const alreadyExists = appliedJobs.some(job => job.jobId == jobId);
+    if (!alreadyExists) {
+      appliedJobs.push({ jobId, jobTitle, fileName });
+      localStorage.setItem(
+        LOCAL_STORAGE_KEYS.APPLIED_JOBS,
+        JSON.stringify(appliedJobs)
+      );
+    }
+  });
 }
 
 function renderJobDescription(job, el) {
@@ -65,8 +95,35 @@ function renderJobDescription(job, el) {
         <div><b>Education:</b> ${d.educationQualification}</div>
       </section>
 
-      <button class="apply-btn">Apply Now</button>
+      <button 
+        class="apply-btn"
+        data-job-id="${job.id}"
+      >
+        Apply Now
+      </button>
     </div>
   `;
+
+  const applyBtn = el.querySelector(".apply-btn");
+
+  restoreAppliedState(applyBtn, job.id);
+
+  applyBtn.addEventListener("click", () => {
+    if (applyBtn.classList.contains("applied")) return;
+
+    openResumePopup(job.title, job.id);
+  });
 }
 
+function restoreAppliedState(button, jobId) {
+  const appliedJobs =
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.APPLIED_JOBS)) || [];
+
+  const isApplied = appliedJobs.some(job => job.jobId == jobId);
+
+  if (isApplied) {
+    button.textContent = "Applied";
+    button.classList.add("applied");
+    button.disabled = true;
+  }
+}
