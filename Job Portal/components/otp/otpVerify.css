@@ -1,0 +1,54 @@
+.auth-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container input {
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.auth-container .btn.primary {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.auth-container .btn.primary:hover {
+  background: #0056b3;
+}
+
+#resendOtp {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#otpTimer {
+  font-weight: bold;
+  color: #ff0000;   
+  margin-left: 5px;
+  font-size: 16px;
+}
