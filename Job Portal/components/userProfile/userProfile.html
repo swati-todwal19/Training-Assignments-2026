@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user profile</title>
+    <link rel="stylesheet" href="./userProfile.css">
+</head>
+
+<body>
+    <div id="userProfileWrapper" class="user-profile-wrapper hidden">
+
+        <div class="profile-header">
+            <div class="avatar">👤</div>
+            <h3 id="userName"></h3>
+            <p id="userEmail"></p>
+        </div>
+
+        <div class="profile-status">
+            Status:
+            <span id="verifyStatus"></span>
+        </div>
+
+        <button id="verifyEmailBtn" class="verify-btn hidden">
+            Verify Email
+        </button>
+
+        <div class="job-counts">
+            <div>Applied: <span id="appliedCount">0</span></div>
+            <div>Bookmarked: <span id="bookmarkCount">0</span></div>
+        </div>
+
+        <span id="logoutText" class="logout-text">Logout</span>
+    </div>
+
+    <script type="module" src="./userProfile.js"></script>
+
+</body>
+
+</html>
