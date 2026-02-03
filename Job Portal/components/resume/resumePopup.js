@@ -8,10 +8,8 @@ const uploadedFileName = document.getElementById("uploadedFileName");
 
 export function openResumePopup(jobTitle, jobId) {
   modal.classList.remove("hidden");
-
   resumeInput.dataset.jobTitle = jobTitle;
   resumeInput.dataset.jobId = jobId;
-
   resumeInput.value = "";
   uploadedFileName.textContent = "";
 }
@@ -35,9 +33,12 @@ function onFileChange(event) {
 
   handleFileSelection(file, jobTitle, jobId);
 
+  document.dispatchEvent(new CustomEvent("resumeUploaded", {
+    detail: { jobId, jobTitle, fileName: file.name }
+  }));
+
   const newInput = resumeInput.cloneNode(true);
   resumeInput.parentNode.replaceChild(newInput, resumeInput);
   resumeInput = newInput;
-
   resumeInput.addEventListener("change", onFileChange);
 }

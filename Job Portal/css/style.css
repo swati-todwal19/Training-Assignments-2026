@@ -33,6 +33,40 @@ body {
   margin: 0;
 }
 
+.auth-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.auth-btn {
+  padding: 8px 18px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.auth-btn.outline {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.auth-btn.outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.auth-btn.primary {
+  background-color: #2563eb;
+  border: none;
+  color: #ffffff;
+}
+
+.auth-btn.primary:hover {
+  background-color: #1e4fd8;
+}
+
 .hero {
     height: 75vh;
     background-image: url("../assets/images/image.png");
@@ -68,8 +102,19 @@ main {
     gap: 20px; 
     padding: 20px;
 }
- 
-/* Job List and web layout as web */
+
+.hidden {
+  display: none !important;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  cursor: pointer;
+}
+
 main {
     align-items: flex-start;
 }
@@ -94,7 +139,6 @@ main {
     top: 90px; 
 }
 
-/* Web Responsive */
 @media screen and (min-width: 1800px) {
     #jobList {
         grid-template-columns: repeat(5, 1fr);

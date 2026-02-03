@@ -1,12 +1,14 @@
 import { openResumePopup } from "../resume/resumePopup.js";
-import { LOCAL_STORAGE_KEYS } from "../../constantFile.js";
+import { requireAuth } from "../authCheck/authCheck.js";
+import { applyJob, getCurrentUser } from "../jobAction/jobAction.js";
+import { refreshProfileCounts } from "../userProfile/userProfile.js";
 
 export function initJobDescription() {
   const container = document.getElementById("jobDescription");
   const backLink = document.getElementById("backLink");
 
   if (backLink) {
-
+    backLink.addEventListener("click", () => window.history.back());
   }
 
   const params = new URLSearchParams(window.location.search);
@@ -22,28 +24,12 @@ export function initJobDescription() {
     });
 
   document.addEventListener("resumeUploaded", (e) => {
-    const { jobTitle, jobId, fileName } = e.detail;
+    const { jobId, jobTitle, fileName } = e.detail;
 
-    const applyBtn = document.querySelector(
-      `.apply-btn[data-job-id="${jobId}"]`
-    );
+    const applyBtn = document.querySelector(`.apply-btn[data-job-id="${jobId}"]`);
     if (!applyBtn) return;
 
-    applyBtn.textContent = "Applied";
-    applyBtn.classList.add("applied");
-    applyBtn.disabled = true;
-
-    let appliedJobs =
-      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.APPLIED_JOBS)) || [];
-
-    const alreadyExists = appliedJobs.some(job => job.jobId == jobId);
-    if (!alreadyExists) {
-      appliedJobs.push({ jobId, jobTitle, fileName });
-      localStorage.setItem(
-        LOCAL_STORAGE_KEYS.APPLIED_JOBS,
-        JSON.stringify(appliedJobs)
-      );
-    }
+    markJobApplied(applyBtn, jobId, jobTitle, fileName);
   });
 }
 
@@ -52,16 +38,10 @@ function renderJobDescription(job, el) {
 
   el.innerHTML = `
     <div class="job-desc-card">
-
       <div class="job-desc-header">
         <h2>${job.title}</h2>
-        <p class="meta">
-          ${job.company} • ${job.location} • ${job.type}
-        </p>
-
-        <div class="tags">
-          ${d.tags.map(tag => `<span>${tag}</span>`).join("")}
-        </div>
+        <p class="meta">${job.company} • ${job.location} • ${job.type}</p>
+        <div class="tags">${d.tags.map(tag => `<span>${tag}</span>`).join("")}</div>
       </div>
 
       <section>
@@ -71,16 +51,12 @@ function renderJobDescription(job, el) {
 
       <section>
         <h3>Responsibilities</h3>
-        <ul>
-          ${d.responsibilities.map(r => `<li>${r}</li>`).join("")}
-        </ul>
+        <ul>${d.responsibilities.map(r => `<li>${r}</li>`).join("")}</ul>
       </section>
 
       <section>
         <h3>Skills Required</h3>
-        <ul class="skills">
-          ${d.skillsRequired.map(s => `<li>${s}</li>`).join("")}
-        </ul>
+        <ul class="skills">${d.skillsRequired.map(s => `<li>${s}</li>`).join("")}</ul>
       </section>
 
       <section>
@@ -95,12 +71,7 @@ function renderJobDescription(job, el) {
         <div><b>Education:</b> ${d.educationQualification}</div>
       </section>
 
-      <button 
-        class="apply-btn"
-        data-job-id="${job.id}"
-      >
-        Apply Now
-      </button>
+      <button class="apply-btn" data-job-id="${job.id}">Apply Now</button>
     </div>
   `;
 
@@ -111,19 +82,34 @@ function renderJobDescription(job, el) {
   applyBtn.addEventListener("click", () => {
     if (applyBtn.classList.contains("applied")) return;
 
-    openResumePopup(job.title, job.id);
+    requireAuth("apply", () => {
+      openResumePopup(job.title, job.id);
+    });
   });
 }
 
 function restoreAppliedState(button, jobId) {
-  const appliedJobs =
-    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.APPLIED_JOBS)) || [];
+  const user = getCurrentUser();
+  if (!user) return;
 
-  const isApplied = appliedJobs.some(job => job.jobId == jobId);
-
-  if (isApplied) {
+  if (user.appliedJobs.includes(jobId)) {
     button.textContent = "Applied";
     button.classList.add("applied");
     button.disabled = true;
   }
+}
+
+function markJobApplied(button, jobId, jobTitle, fileName) {
+  if (!button) return;
+
+  const user = getCurrentUser();
+  if (!user) return;
+
+  button.textContent = "Applied";
+  button.classList.add("applied");
+  button.disabled = true;
+
+  applyJob(jobId);
+
+  refreshProfileCounts(user);
 }
