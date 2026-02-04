@@ -1,12 +1,13 @@
 import { openResumePopup } from "../resume/resumePopup.js";
-import { LOCAL_STORAGE_KEYS } from "../../constantFile.js";
+import { requireAuth } from "../authCheck/authCheck.js";
+import { applyJob, getCurrentUser } from "../jobAction/jobAction.js";
 
 export function initJobDescription() {
   const container = document.getElementById("jobDescription");
   const backLink = document.getElementById("backLink");
 
   if (backLink) {
-
+    backLink.addEventListener("click", () => window.history.back());
   }
 
   const params = new URLSearchParams(window.location.search);
@@ -15,36 +16,26 @@ export function initJobDescription() {
   fetch("data/jobs.json")
     .then(res => res.json())
     .then(jobs => {
-      const job = jobs.find(j => j.id == jobId);
-      if (!job) return;
+      const job = jobs.find(j => String(j.id) === String(jobId));
+      if (!job || !container) return;
 
       renderJobDescription(job, container);
     });
 
   document.addEventListener("resumeUploaded", (e) => {
-    const { jobTitle, jobId, fileName } = e.detail;
+  const { jobId, success } = e.detail || {};
 
-    const applyBtn = document.querySelector(
-      `.apply-btn[data-job-id="${jobId}"]`
-    );
-    if (!applyBtn) return;
+  if (!success) return; 
 
-    applyBtn.textContent = "Applied";
-    applyBtn.classList.add("applied");
-    applyBtn.disabled = true;
+  const applyBtn = document.querySelector(
+    `.apply-btn[data-job-id="${jobId}"]`
+  );
 
-    let appliedJobs =
-      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.APPLIED_JOBS)) || [];
+  if (!applyBtn) return;
 
-    const alreadyExists = appliedJobs.some(job => job.jobId == jobId);
-    if (!alreadyExists) {
-      appliedJobs.push({ jobId, jobTitle, fileName });
-      localStorage.setItem(
-        LOCAL_STORAGE_KEYS.APPLIED_JOBS,
-        JSON.stringify(appliedJobs)
-      );
-    }
-  });
+  markJobApplied(applyBtn, jobId);
+});
+
 }
 
 function renderJobDescription(job, el) {
@@ -52,13 +43,9 @@ function renderJobDescription(job, el) {
 
   el.innerHTML = `
     <div class="job-desc-card">
-
       <div class="job-desc-header">
         <h2>${job.title}</h2>
-        <p class="meta">
-          ${job.company} • ${job.location} • ${job.type}
-        </p>
-
+        <p class="meta">${job.company} • ${job.location} • ${job.type}</p>
         <div class="tags">
           ${d.tags.map(tag => `<span>${tag}</span>`).join("")}
         </div>
@@ -95,10 +82,7 @@ function renderJobDescription(job, el) {
         <div><b>Education:</b> ${d.educationQualification}</div>
       </section>
 
-      <button 
-        class="apply-btn"
-        data-job-id="${job.id}"
-      >
+      <button class="apply-btn" data-job-id="${job.id}">
         Apply Now
       </button>
     </div>
@@ -111,19 +95,31 @@ function renderJobDescription(job, el) {
   applyBtn.addEventListener("click", () => {
     if (applyBtn.classList.contains("applied")) return;
 
-    openResumePopup(job.title, job.id);
+    requireAuth("apply", () => {
+      openResumePopup(job.title, job.id);
+    });
   });
 }
 
 function restoreAppliedState(button, jobId) {
-  const appliedJobs =
-    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.APPLIED_JOBS)) || [];
+  if (!button) return;
 
-  const isApplied = appliedJobs.some(job => job.jobId == jobId);
+  const user = getCurrentUser();
+  if (!user || !Array.isArray(user.appliedJobs)) return;
 
-  if (isApplied) {
+  if (user.appliedJobs.includes(String(jobId))) {
     button.textContent = "Applied";
     button.classList.add("applied");
     button.disabled = true;
   }
+}
+
+function markJobApplied(button, jobId) {
+  if (!button) return;
+
+  applyJob(String(jobId));
+
+  button.textContent = "Applied";
+  button.classList.add("applied");
+  button.disabled = true;
 }

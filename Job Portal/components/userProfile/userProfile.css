@@ -1,0 +1,114 @@
+#userProfileWrapper {
+    position: fixed;
+    top: 90px;
+    right: 7px;
+    width: 240px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    padding: 18px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#userProfileWrapper.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.profileHeader {
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.profileHeader .avatar {
+    font-size: 52px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.profileHeader h3 {
+    margin: 2px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+}
+
+.profileHeader p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.profileStatus {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+.verifyBtn {
+    width: 100%;
+    padding: 8px 0;
+    background: #ff9800;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.verifyBtn:hover {
+    background: #e68900;
+}
+
+.jobCounts {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.jobCounts span {
+    font-weight: 600;
+    color: #222;
+}
+
+.logout-text {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: normal;
+    display: inline-block;
+    margin: 5px 0 0 0;
+    padding: 2px 5px;
+    transition: color 0.3s;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.user-profile i {
+    font-size: 28px;
+    color: #fff;
+}
+
+.user-profile span {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+}

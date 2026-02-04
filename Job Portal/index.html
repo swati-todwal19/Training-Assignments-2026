@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="components/bookmark/bookmark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="components/sort/sort.css">
+    <link rel="stylesheet" href="components/userProfile/userProfile.css">
+    <link rel="stylesheet" href="components/authCheck/authCheck.css" />
+
 </head>
 
 <body>
@@ -27,8 +30,20 @@
     <div id="header">
         <header class="header" id="mainHeader">
             <div class="logo">JobNest</div>
+
+            <div class="auth-actions">
+                <button id="registerBtn" class="auth-btn outline">Register</button>
+                <button id="loginBtn" class="auth-btn primary">Login</button>
+            </div>
+
+            <div class="user-profile hidden" id="userProfileIcon">
+                <i class="fas fa-user-circle"></i>
+                <span id="navUserName"></span>
+            </div>
         </header>
     </div>
+
+    <div id="userProfileWrapper"></div>
 
     <div id="bookmarkPanel">
         <div class="bookmark-search">
@@ -84,4 +99,5 @@
     <script type="module" src="components/sort/sort.js"></script>
 
 </body>
+
 </html>

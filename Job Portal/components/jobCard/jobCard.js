@@ -1,5 +1,6 @@
 const jobListEl = document.getElementById("jobList");
 import { initBookmarkModule } from "../bookmark/bookmark.js";
+import { applyJob, bookmarkJob, saveJob } from "../jobAction/jobAction.js";
 
 export function renderJobCard(job) {
   const card = document.createElement("div");
@@ -72,7 +73,6 @@ export function renderJobs(jobs) {
 }
 
 export function renderJobsForPagination(jobsSlice) {
-  const jobListEl = document.getElementById("jobList");
   jobListEl.innerHTML = "";
 
   if (jobsSlice.length === 0) {
@@ -87,5 +87,3 @@ export function renderJobsForPagination(jobsSlice) {
   const jobCards = document.querySelectorAll(".job-card");
   initBookmarkModule(jobCards);
 }
-
-

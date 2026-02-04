@@ -36,12 +36,18 @@ closeSuccess.addEventListener("click", () => {
   const jobId = successModal.dataset.jobId;
   const fileName = successModal.dataset.fileName;
 
-  const event = new CustomEvent("resumeUploaded", {
-    detail: { jobTitle, jobId, fileName }
-  });
-
-  document.dispatchEvent(event);
+  document.dispatchEvent(
+    new CustomEvent("resumeUploaded", {
+      detail: {
+        jobId,
+        jobTitle,
+        fileName,
+        success: true
+      }
+    })
+  );
 });
+
 
 closeFailure.addEventListener("click", () => {
   failureModal.classList.add("hidden");
