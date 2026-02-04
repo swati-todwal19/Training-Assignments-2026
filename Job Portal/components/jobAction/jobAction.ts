@@ -6,7 +6,7 @@ import {
 } from "../utils/storage.js";
 import { STORAGE_KEYS } from "../../constant.js";
 
-export interface User {
+export interface IUser {
   id: string;
   name: string;
   email: string;
@@ -16,25 +16,25 @@ export interface User {
   bookmarkedJobs: string[];
 }
 
-function getAllUsers(): User[] {
-  return getFromStorage<User[]>(STORAGE_KEYS.USER) || [];
+function getAllUsers(): IUser[] {
+  return getFromStorage<IUser[]>(STORAGE_KEYS.USER) || [];
 }
 
-function saveAllUsers(users: User[]) {
+function saveAllUsers(users: IUser[]) {
   saveToStorage(STORAGE_KEYS.USER, users);
 }
 
-export function getCurrentUser(): User | null {
-  return getSession<User>(STORAGE_KEYS.TOKEN);
+export function getCurrentUser(): IUser | null {
+  return getSession<IUser>(STORAGE_KEYS.TOKEN);
 }
 
-function dispatchUserUpdate(user: User) {
+function dispatchUserUpdate(user: IUser) {
   document.dispatchEvent(
     new CustomEvent("userUpdated", { detail: user })
   );
 }
 
-function syncUser(user: User) {
+function syncUser(user: IUser) {
   const users = getAllUsers();
   const index = users.findIndex(u => u.email === user.email);
 
@@ -47,7 +47,7 @@ function syncUser(user: User) {
   saveAllUsers(users);
   saveSession(STORAGE_KEYS.TOKEN, { ...user });
 
-  dispatchUserUpdate(user); 
+  dispatchUserUpdate(user);
 }
 
 export function applyJob(jobId: string) {
