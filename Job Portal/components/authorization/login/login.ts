@@ -1,14 +1,15 @@
 import { STORAGE_KEYS, MESSAGES } from "../../../constant.js";
 import { getFromStorage, saveSession, getSession, saveToStorage } from "../../utils/storage.js";
-import { hashPassword } from "../../utils/hash.js";
-import { User } from "../../models/types.js";
+import { IUser } from "../../models/types.js";
+import { verifyPassword } from "../../utils/auth.js";
+import { validateRequired, validateEmail, validatePassword } from "../../utils/validation.js";
 
 const loginForm = document.getElementById("loginForm") as HTMLFormElement | null;
 const goToRegister = document.getElementById("goToRegister") as HTMLAnchorElement | null;
 
 const MAX_LOGIN_ATTEMPTS = 3;
 
-const currentUser = getSession<User>(STORAGE_KEYS.TOKEN);
+const currentUser = getSession<IUser>(STORAGE_KEYS.TOKEN);
 if (currentUser) {
   window.location.href = "../../../index.html";
 }
@@ -27,11 +28,25 @@ loginForm?.addEventListener("submit", async (event: Event) => {
   const email = emailInput.value.trim();
   const password = passwordInput.value;
 
-  if (!email || !password) return alert(MESSAGES.FILL_ALL);
-  if (!email.includes("@")) return alert(MESSAGES.INVALID_EMAIL);
-  if (password.length < 6) return alert(MESSAGES.PASSWORD_SHORT);
+  const requiredCheck = validateRequired(email, password);
+  if (!requiredCheck.valid) {
+    alert(requiredCheck.message);
+    return;
+  }
 
-  const users: User[] = getFromStorage<User[]>(STORAGE_KEYS.USER) || [];
+  const emailCheck = validateEmail(email);
+  if (!emailCheck.valid) {
+    alert(emailCheck.message);
+    return;
+  }
+
+  const passwordCheck = validatePassword(password);
+  if (!passwordCheck.valid) {
+    alert(passwordCheck.message);
+    return;
+  }
+
+  const users: IUser[] = getFromStorage<IUser[]>(STORAGE_KEYS.USER) || [];
   const userIndex = users.findIndex(u => u.email === email);
 
   if (userIndex === -1) {
@@ -54,9 +69,9 @@ loginForm?.addEventListener("submit", async (event: Event) => {
     return;
   }
 
-  const hashedPassword = await hashPassword(password);
+  const isPasswordCorrect = await verifyPassword(user, password);
 
-  if (user.passwordHash === hashedPassword) {
+  if (isPasswordCorrect) {
     user.loginAttempts = 0;
     user.isLocked = false;
 

@@ -1,6 +1,7 @@
 import { STORAGE_KEYS, MESSAGES } from "../../../constant.js";
 import { getFromStorage, saveSession, getSession, saveToStorage } from "../../utils/storage.js";
-import { hashPassword } from "../../utils/hash.js";
+import { verifyPassword } from "../../utils/auth.js";
+import { validateRequired, validateEmail, validatePassword } from "../../utils/validation.js";
 const loginForm = document.getElementById("loginForm");
 const goToRegister = document.getElementById("goToRegister");
 const MAX_LOGIN_ATTEMPTS = 3;
@@ -19,12 +20,21 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
     }
     const email = emailInput.value.trim();
     const password = passwordInput.value;
-    if (!email || !password)
-        return alert(MESSAGES.FILL_ALL);
-    if (!email.includes("@"))
-        return alert(MESSAGES.INVALID_EMAIL);
-    if (password.length < 6)
-        return alert(MESSAGES.PASSWORD_SHORT);
+    const requiredCheck = validateRequired(email, password);
+    if (!requiredCheck.valid) {
+        alert(requiredCheck.message);
+        return;
+    }
+    const emailCheck = validateEmail(email);
+    if (!emailCheck.valid) {
+        alert(emailCheck.message);
+        return;
+    }
+    const passwordCheck = validatePassword(password);
+    if (!passwordCheck.valid) {
+        alert(passwordCheck.message);
+        return;
+    }
     const users = getFromStorage(STORAGE_KEYS.USER) || [];
     const userIndex = users.findIndex(u => u.email === email);
     if (userIndex === -1) {
@@ -42,8 +52,8 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
         alert("Please verify your email before login.");
         return;
     }
-    const hashedPassword = await hashPassword(password);
-    if (user.passwordHash === hashedPassword) {
+    const isPasswordCorrect = await verifyPassword(user, password);
+    if (isPasswordCorrect) {
         user.loginAttempts = 0;
         user.isLocked = false;
         users[userIndex] = user;
