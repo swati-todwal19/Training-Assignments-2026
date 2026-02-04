@@ -1,19 +1,11 @@
 import { getSession } from "../utils/storage.js";
 import { STORAGE_KEYS, USER_PROFILE_IDS, CLASS_NAMES } from "../../constant.js";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  isVerified: boolean;
-  appliedJobs: string[];
-  bookmarkedJobs: string[];
-}
+import type { IUser } from "../jobAction/jobAction.js";
 
 let isProfileInitialized = false;
 
 export function initUserProfile() {
-  const user = getSession<User>(STORAGE_KEYS.TOKEN);
+  const user = getSession<IUser>(STORAGE_KEYS.TOKEN);
   if (!user) return;
 
   user.appliedJobs ??= [];
@@ -70,7 +62,7 @@ export function initUserProfile() {
   wrapper.classList.toggle("hidden");
 }
 
-export function refreshProfileCounts(user: User) {
+export function refreshProfileCounts(user: IUser) {
   document.getElementById("appliedCount")!.textContent =
     String(user.appliedJobs.length);
 
