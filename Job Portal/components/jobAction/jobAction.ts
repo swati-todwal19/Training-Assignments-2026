@@ -1,6 +1,10 @@
-import { getSession } from "../utils/storage.js";
+import {
+  getSession,
+  saveSession,
+  getFromStorage,
+  saveToStorage,
+} from "../utils/storage.js";
 import { STORAGE_KEYS } from "../../constant.js";
-import { refreshProfileCounts } from "../userProfile/userProfile.js";
 
 export interface User {
   id: string;
@@ -12,36 +16,49 @@ export interface User {
   bookmarkedJobs: string[];
 }
 
-function getAllUsers(): Record<string, User> {
-  return JSON.parse(localStorage.getItem("users") || "{}");
+function getAllUsers(): User[] {
+  return getFromStorage<User[]>(STORAGE_KEYS.USER) || [];
 }
 
-function saveAllUsers(users: Record<string, User>) {
-  localStorage.setItem("users", JSON.stringify(users));
+function saveAllUsers(users: User[]) {
+  saveToStorage(STORAGE_KEYS.USER, users);
 }
 
 export function getCurrentUser(): User | null {
-  const sessionUser = getSession<{ email: string }>(STORAGE_KEYS.TOKEN);
-  if (!sessionUser) return null;
-
-  const users = getAllUsers();
-  return users[sessionUser.email] || null;
+  return getSession<User>(STORAGE_KEYS.TOKEN);
 }
 
-function saveUser(user: User) {
+function dispatchUserUpdate(user: User) {
+  document.dispatchEvent(
+    new CustomEvent("userUpdated", { detail: user })
+  );
+}
+
+function syncUser(user: User) {
   const users = getAllUsers();
-  users[user.email] = user;
+  const index = users.findIndex(u => u.email === user.email);
+
+  if (index !== -1) {
+    users[index] = { ...user };
+  } else {
+    users.push({ ...user });
+  }
+
   saveAllUsers(users);
+  saveSession(STORAGE_KEYS.TOKEN, { ...user });
+
+  dispatchUserUpdate(user); 
 }
 
 export function applyJob(jobId: string) {
   const user = getCurrentUser();
   if (!user) return;
 
+  user.appliedJobs ??= [];
+
   if (!user.appliedJobs.includes(jobId)) {
     user.appliedJobs.push(jobId);
-    saveUser(user);
-    refreshProfileCounts(user);
+    syncUser(user);
   }
 }
 
@@ -49,10 +66,11 @@ export function bookmarkJob(jobId: string) {
   const user = getCurrentUser();
   if (!user) return;
 
+  user.bookmarkedJobs ??= [];
+
   if (!user.bookmarkedJobs.includes(jobId)) {
     user.bookmarkedJobs.push(jobId);
-    saveUser(user);
-    refreshProfileCounts(user);
+    syncUser(user);
   }
 }
 
@@ -60,19 +78,21 @@ export function removeBookmarkForUser(jobId: string) {
   const user = getCurrentUser();
   if (!user) return;
 
+  user.bookmarkedJobs ??= [];
   user.bookmarkedJobs = user.bookmarkedJobs.filter(id => id !== jobId);
-  saveUser(user);
 
-  refreshProfileCounts(user);
+  syncUser(user);
 }
 
 export function saveJob(jobId: string) {
   const user = getCurrentUser();
   if (!user) return;
 
+  user.savedJobs ??= [];
+
   if (!user.savedJobs.includes(jobId)) {
     user.savedJobs.push(jobId);
-    saveUser(user);
-    refreshProfileCounts(user);
+    syncUser(user);
   }
 }
+

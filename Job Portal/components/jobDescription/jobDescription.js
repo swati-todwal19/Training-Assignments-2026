@@ -1,7 +1,6 @@
 import { openResumePopup } from "../resume/resumePopup.js";
 import { requireAuth } from "../authCheck/authCheck.js";
 import { applyJob, getCurrentUser } from "../jobAction/jobAction.js";
-import { refreshProfileCounts } from "../userProfile/userProfile.js";
 
 export function initJobDescription() {
   const container = document.getElementById("jobDescription");
@@ -17,20 +16,26 @@ export function initJobDescription() {
   fetch("data/jobs.json")
     .then(res => res.json())
     .then(jobs => {
-      const job = jobs.find(j => j.id == jobId);
-      if (!job) return;
+      const job = jobs.find(j => String(j.id) === String(jobId));
+      if (!job || !container) return;
 
       renderJobDescription(job, container);
     });
 
   document.addEventListener("resumeUploaded", (e) => {
-    const { jobId, jobTitle, fileName } = e.detail;
+  const { jobId, success } = e.detail || {};
 
-    const applyBtn = document.querySelector(`.apply-btn[data-job-id="${jobId}"]`);
-    if (!applyBtn) return;
+  if (!success) return; 
 
-    markJobApplied(applyBtn, jobId, jobTitle, fileName);
-  });
+  const applyBtn = document.querySelector(
+    `.apply-btn[data-job-id="${jobId}"]`
+  );
+
+  if (!applyBtn) return;
+
+  markJobApplied(applyBtn, jobId);
+});
+
 }
 
 function renderJobDescription(job, el) {
@@ -41,7 +46,9 @@ function renderJobDescription(job, el) {
       <div class="job-desc-header">
         <h2>${job.title}</h2>
         <p class="meta">${job.company} • ${job.location} • ${job.type}</p>
-        <div class="tags">${d.tags.map(tag => `<span>${tag}</span>`).join("")}</div>
+        <div class="tags">
+          ${d.tags.map(tag => `<span>${tag}</span>`).join("")}
+        </div>
       </div>
 
       <section>
@@ -51,12 +58,16 @@ function renderJobDescription(job, el) {
 
       <section>
         <h3>Responsibilities</h3>
-        <ul>${d.responsibilities.map(r => `<li>${r}</li>`).join("")}</ul>
+        <ul>
+          ${d.responsibilities.map(r => `<li>${r}</li>`).join("")}
+        </ul>
       </section>
 
       <section>
         <h3>Skills Required</h3>
-        <ul class="skills">${d.skillsRequired.map(s => `<li>${s}</li>`).join("")}</ul>
+        <ul class="skills">
+          ${d.skillsRequired.map(s => `<li>${s}</li>`).join("")}
+        </ul>
       </section>
 
       <section>
@@ -71,7 +82,9 @@ function renderJobDescription(job, el) {
         <div><b>Education:</b> ${d.educationQualification}</div>
       </section>
 
-      <button class="apply-btn" data-job-id="${job.id}">Apply Now</button>
+      <button class="apply-btn" data-job-id="${job.id}">
+        Apply Now
+      </button>
     </div>
   `;
 
@@ -89,27 +102,24 @@ function renderJobDescription(job, el) {
 }
 
 function restoreAppliedState(button, jobId) {
-  const user = getCurrentUser();
-  if (!user) return;
+  if (!button) return;
 
-  if (user.appliedJobs.includes(jobId)) {
+  const user = getCurrentUser();
+  if (!user || !Array.isArray(user.appliedJobs)) return;
+
+  if (user.appliedJobs.includes(String(jobId))) {
     button.textContent = "Applied";
     button.classList.add("applied");
     button.disabled = true;
   }
 }
 
-function markJobApplied(button, jobId, jobTitle, fileName) {
+function markJobApplied(button, jobId) {
   if (!button) return;
 
-  const user = getCurrentUser();
-  if (!user) return;
+  applyJob(String(jobId));
 
   button.textContent = "Applied";
   button.classList.add("applied");
   button.disabled = true;
-
-  applyJob(jobId);
-
-  refreshProfileCounts(user);
 }

@@ -1,35 +1,40 @@
-import { LOCAL_STORAGE_KEYS } from "../../constantFile.js";
-import { bookmarkJob, removeBookmarkForUser } from "../jobAction/jobAction.js";
+import {
+  bookmarkJob,
+  removeBookmarkForUser,
+  getCurrentUser
+} from "../jobAction/jobAction.js";
 import { requireAuth } from "../authCheck/authCheck.js";
 
 const bookmarkHeader = document.getElementById("bookmarkHeader");
 const bookmarkPanel = document.getElementById("bookmarkPanel");
 
-export function initBookmarkModule(jobCards) {
-  let bookmarks = [];
+let allJobs = [];
 
+async function loadJobs() {
+  if (allJobs.length) return;
   try {
-    bookmarks =
-      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.BOOKMARKED_JOBS)) ?? [];
-  } catch {
-    bookmarks = [];
+    const res = await fetch("data/jobs.json");
+    allJobs = await res.json();
+  } catch (e) {
+    console.error("Failed to load jobs", e);
   }
+}
 
-  if (!Array.isArray(bookmarks)) bookmarks = [];
+export async function initBookmarkModule(jobCards) {
   if (!jobCards || !jobCards.forEach) return;
+
+  await loadJobs();
 
   jobCards.forEach(card => {
     const jobId = card.dataset.jobId;
-    const jobTitle = card.dataset.jobTitle;
-    const company = card.dataset.company;
-
     if (!jobId) return;
 
     const star = document.createElement("span");
     star.className = "bookmark-star";
     star.innerText = "★";
 
-    if (bookmarks.some(b => b.jobId == jobId)) {
+    const user = getCurrentUser();
+    if (user?.bookmarkedJobs?.includes(jobId)) {
       star.classList.add("bookmarked");
     }
 
@@ -41,98 +46,87 @@ export function initBookmarkModule(jobCards) {
       e.stopPropagation();
 
       requireAuth("bookmark", () => {
-        const index = bookmarks.findIndex(b => b.jobId == jobId);
+        const user = getCurrentUser();
+        if (!user) return;
 
-        if (index > -1) {
-          bookmarks.splice(index, 1);
-          star.classList.remove("bookmarked");
+        user.bookmarkedJobs ??= [];
+
+        if (user.bookmarkedJobs.includes(jobId)) {
           removeBookmarkForUser(jobId);
+          star.classList.remove("bookmarked");
         } else {
-          bookmarks.push({ jobId, jobTitle, company });
-          star.classList.add("bookmarked");
           bookmarkJob(jobId);
+          star.classList.add("bookmarked");
         }
-
-        localStorage.setItem(
-          LOCAL_STORAGE_KEYS.BOOKMARKED_JOBS,
-          JSON.stringify(bookmarks)
-        );
 
         renderBookmarkPanel();
       });
     });
   });
 
-  bookmarkHeader?.addEventListener("click", () => {
+  bookmarkHeader?.addEventListener("click", async () => {
     bookmarkPanel?.classList.toggle("open");
-    renderBookmarkPanel();
+    await renderBookmarkPanel();
   });
-
-  renderBookmarkPanel();
 }
 
-function renderBookmarkPanel() {
-  let bookmarks = [];
-
-  try {
-    bookmarks =
-      JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEYS.BOOKMARKED_JOBS)) ?? [];
-  } catch {
-    bookmarks = [];
-  }
-
-  if (!Array.isArray(bookmarks)) bookmarks = [];
+async function renderBookmarkPanel() {
   if (!bookmarkPanel) return;
 
-  bookmarkPanel.innerHTML = `
-    <div class="bookmark-search">
-      <input type="text" id="bookmarkSearchInput" placeholder="Search bookmarks" />
-    </div>
-    <div class="bookmark-list"></div>
-  `;
+  await loadJobs();
 
   const listEl = bookmarkPanel.querySelector(".bookmark-list");
   const searchInput = bookmarkPanel.querySelector("#bookmarkSearchInput");
 
+  if (!listEl || !searchInput) return;
+
   function renderList(filter = "") {
     listEl.innerHTML = "";
 
-    const filtered = bookmarks.filter(b =>
-      b.jobTitle.toLowerCase().includes(filter.toLowerCase()) ||
-      b.company.toLowerCase().includes(filter.toLowerCase())
+    const user = getCurrentUser();
+    const bookmarkedIds = user?.bookmarkedJobs ?? [];
+
+    const filteredJobs = allJobs.filter(job =>
+      bookmarkedIds.includes(String(job.id)) &&
+      (
+        job.title.toLowerCase().includes(filter) ||
+        job.company.toLowerCase().includes(filter)
+      )
     );
 
-    if (!filtered.length) {
+    if (!filteredJobs.length) {
       listEl.innerHTML = "<p>No bookmarks</p>";
       return;
     }
 
-    filtered.forEach(b => {
+    filteredJobs.forEach(job => {
       const item = document.createElement("div");
       item.className = "bookmark-item";
+
       item.innerHTML = `
-        <div>${b.jobTitle}</div>
+        <div>
+          <strong>${job.title}</strong>
+          <p>${job.company}</p>
+        </div>
         <span class="remove">✕</span>
       `;
+
+      item.addEventListener("click", () => {
+        window.location.href = `/Job%20Portal/jobDetails.html?id=${job.id}`;
+      });
 
       item.querySelector(".remove").addEventListener("click", e => {
         e.stopPropagation();
 
         requireAuth("bookmark", () => {
-          bookmarks = bookmarks.filter(x => x.jobId != b.jobId);
-          localStorage.setItem(
-            LOCAL_STORAGE_KEYS.BOOKMARKED_JOBS,
-            JSON.stringify(bookmarks)
-          );
-
-          removeBookmarkForUser(b.jobId);
+          removeBookmarkForUser(String(job.id));
 
           const star = document.querySelector(
-            `.job-card[data-job-id="${b.jobId}"] .bookmark-star`
+            `.job-card[data-job-id="${job.id}"] .bookmark-star`
           );
           if (star) star.classList.remove("bookmarked");
 
-          renderList(searchInput.value);
+          renderList(searchInput.value.toLowerCase());
         });
       });
 
@@ -142,7 +136,7 @@ function renderBookmarkPanel() {
 
   renderList();
 
-  searchInput?.addEventListener("input", e => {
-    renderList(e.target.value);
-  });
+  searchInput.oninput = e => {
+    renderList(e.target.value.toLowerCase());
+  };
 }

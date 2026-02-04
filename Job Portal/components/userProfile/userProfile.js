@@ -1,47 +1,13 @@
 import { getSession } from "../utils/storage.js";
 import { STORAGE_KEYS, USER_PROFILE_IDS, CLASS_NAMES } from "../../constant.js";
 let isProfileInitialized = false;
-function getAllUsers() {
-    return JSON.parse(localStorage.getItem("users") || "{}");
-}
-function saveAllUsers(users) {
-    localStorage.setItem("users", JSON.stringify(users));
-}
-function saveUser(user) {
-    const users = getAllUsers();
-    users[user.email] = user;
-    saveAllUsers(users);
-}
 export function initUserProfile() {
-    const sessionUser = getSession(STORAGE_KEYS.TOKEN);
-    if (!sessionUser)
+    var _a, _b;
+    const user = getSession(STORAGE_KEYS.TOKEN);
+    if (!user)
         return;
-    const users = getAllUsers();
-    let user = users[sessionUser.email];
-    if (!user) {
-        user = {
-            id: sessionUser.email,
-            name: sessionUser.email.split("@")[0],
-            email: sessionUser.email,
-            isVerified: false,
-            appliedJobs: [],
-            bookmarkedJobs: [],
-        };
-        saveUser(user);
-    }
-    else {
-        let updated = false;
-        if (!Array.isArray(user.appliedJobs)) {
-            user.appliedJobs = [];
-            updated = true;
-        }
-        if (!Array.isArray(user.bookmarkedJobs)) {
-            user.bookmarkedJobs = [];
-            updated = true;
-        }
-        if (updated)
-            saveUser(user);
-    }
+    (_a = user.appliedJobs) !== null && _a !== void 0 ? _a : (user.appliedJobs = []);
+    (_b = user.bookmarkedJobs) !== null && _b !== void 0 ? _b : (user.bookmarkedJobs = []);
     const wrapper = document.getElementById(USER_PROFILE_IDS.wrapper);
     const navName = document.getElementById(USER_PROFILE_IDS.navName);
     if (!wrapper)
@@ -50,65 +16,46 @@ export function initUserProfile() {
         wrapper.innerHTML = "";
         if (navName)
             navName.textContent = user.name;
-        const profileHeader = document.createElement("div");
-        profileHeader.className = CLASS_NAMES.profileHeader;
-        profileHeader.innerHTML = `
+        const header = document.createElement("div");
+        header.className = CLASS_NAMES.profileHeader;
+        header.innerHTML = `
       <div class="avatar">👤</div>
       <h3>${user.name}</h3>
       <p>${user.email}</p>
     `;
-        wrapper.appendChild(profileHeader);
-        const statusEl = document.createElement("div");
-        statusEl.className = CLASS_NAMES.profileStatus;
-        statusEl.innerHTML = `Status: <span>${user.isVerified ? "Verified ✅" : "Not Verified ❌"}</span>`;
-        wrapper.appendChild(statusEl);
-        if (!user.isVerified) {
-            const verifyBtn = document.createElement("button");
-            verifyBtn.id = USER_PROFILE_IDS.verifyBtn;
-            verifyBtn.className = CLASS_NAMES.verifyBtn;
-            verifyBtn.textContent = "Verify Email";
-            wrapper.appendChild(verifyBtn);
-            verifyBtn.addEventListener("click", () => {
-                alert("Verification successful (dummy)");
-                user.isVerified = true;
-                saveUser(user);
-                statusEl.innerHTML = `Status: <span>Verified ✅</span>`;
-                verifyBtn.style.display = "none";
-            });
-        }
-        const jobCounts = document.createElement("div");
-        jobCounts.className = CLASS_NAMES.jobCounts;
-        jobCounts.innerHTML = `
-      <div>Applied: <span id="appliedCount">${user.appliedJobs.length}</span></div>
-      <div>Bookmarked: <span id="bookmarkCount">${user.bookmarkedJobs.length}</span></div>
+        wrapper.appendChild(header);
+        const status = document.createElement("div");
+        status.className = CLASS_NAMES.profileStatus;
+        status.innerHTML = `Status: <span>${user.isVerified ? "Verified" : "Not Verified"}</span>`;
+        wrapper.appendChild(status);
+        const counts = document.createElement("div");
+        counts.className = CLASS_NAMES.jobCounts;
+        counts.innerHTML = `
+      <div>Applied: <span id="appliedCount">0</span></div>
+      <div>Bookmarked: <span id="bookmarkCount">0</span></div>
     `;
-        wrapper.appendChild(jobCounts);
-        const logoutText = document.createElement("span");
-        logoutText.id = USER_PROFILE_IDS.logoutBtn;
-        logoutText.className = CLASS_NAMES.logoutBtn;
-        logoutText.textContent = "Logout";
-        logoutText.style.cursor = "pointer";
-        wrapper.appendChild(logoutText);
-        logoutText.addEventListener("click", () => {
+        wrapper.appendChild(counts);
+        refreshProfileCounts(user);
+        const logout = document.createElement("span");
+        logout.textContent = "Logout";
+        logout.className = CLASS_NAMES.logoutBtn;
+        logout.style.cursor = "pointer";
+        wrapper.appendChild(logout);
+        logout.onclick = () => {
             localStorage.removeItem(STORAGE_KEYS.TOKEN);
-            window.location.href = STORAGE_KEYS.LOGIN_PAGE_PATH;
-        });
+            sessionStorage.removeItem(STORAGE_KEYS.TOKEN);
+            window.location.replace(STORAGE_KEYS.LOGIN_PAGE_PATH);
+        };
         isProfileInitialized = true;
     }
-    if (wrapper.classList.contains("hidden")) {
-        wrapper.classList.remove("hidden");
-        wrapper.style.transform = "translateX(0)";
-    }
-    else {
-        wrapper.classList.add("hidden");
-        wrapper.style.transform = "translateX(100%)";
-    }
+    wrapper.classList.toggle("hidden");
 }
 export function refreshProfileCounts(user) {
-    const appliedCount = document.getElementById("appliedCount");
-    const bookmarkCount = document.getElementById("bookmarkCount");
-    if (appliedCount)
-        appliedCount.textContent = user.appliedJobs.length.toString();
-    if (bookmarkCount)
-        bookmarkCount.textContent = user.bookmarkedJobs.length.toString();
+    document.getElementById("appliedCount").textContent =
+        String(user.appliedJobs.length);
+    document.getElementById("bookmarkCount").textContent =
+        String(user.bookmarkedJobs.length);
 }
+document.addEventListener("userUpdated", (e) => {
+    refreshProfileCounts(e.detail);
+});

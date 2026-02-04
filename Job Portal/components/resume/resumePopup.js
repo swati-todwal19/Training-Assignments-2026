@@ -33,10 +33,6 @@ function onFileChange(event) {
 
   handleFileSelection(file, jobTitle, jobId);
 
-  document.dispatchEvent(new CustomEvent("resumeUploaded", {
-    detail: { jobId, jobTitle, fileName: file.name }
-  }));
-
   const newInput = resumeInput.cloneNode(true);
   resumeInput.parentNode.replaceChild(newInput, resumeInput);
   resumeInput = newInput;
