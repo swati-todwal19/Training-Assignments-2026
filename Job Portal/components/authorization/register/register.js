@@ -1,6 +1,7 @@
 import { STORAGE_KEYS, MESSAGES } from "../../../constant.js";
 import { hashPassword } from "../../utils/hash.js";
 import { generateOTP } from "../../otp/otpUtils.js";
+import { validateRequired, validateEmail, validatePassword } from "../../utils/validation.js";
 document.addEventListener("DOMContentLoaded", () => {
     const registerForm = document.getElementById("registerForm");
     const goToLogin = document.getElementById("goToLogin");
@@ -24,16 +25,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
         const password = passwordInput.value;
-        if (!name || !email || !password) {
-            alert(MESSAGES.FILL_ALL);
+        const requiredCheck = validateRequired(name, email, password);
+        if (!requiredCheck.valid) {
+            alert(requiredCheck.message);
             return;
         }
-        if (!email.includes("@")) {
-            alert(MESSAGES.INVALID_EMAIL);
+        const emailCheck = validateEmail(email);
+        if (!emailCheck.valid) {
+            alert(emailCheck.message);
             return;
         }
-        if (password.length < 6) {
-            alert(MESSAGES.PASSWORD_SHORT);
+        const passwordCheck = validatePassword(password);
+        if (!passwordCheck.valid) {
+            alert(passwordCheck.message);
             return;
         }
         const users = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER) || "[]");
