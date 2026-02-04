@@ -1,7 +1,8 @@
 import { STORAGE_KEYS, MESSAGES } from "../../../constant.js";
 import { getFromStorage, saveSession } from "../../utils/storage.js";
 import { hashPassword } from "../../utils/hash.js";
-import { User } from "../../models/types.js";
+import { IUser } from "../../models/types.js";
+import { validateRequired, validateEmail, validatePassword } from "../../utils/validation.js";
 
 const resetForm = document.getElementById("resetForm") as HTMLFormElement | null;
 
@@ -21,12 +22,35 @@ if (!resetForm) {
     const newPassword = newPasswordInput.value;
     const confirmPassword = confirmPasswordInput.value;
 
-    if (!email || !newPassword || !confirmPassword) return alert(MESSAGES.FILL_ALL);
-    if (!email.includes("@")) return alert(MESSAGES.INVALID_EMAIL);
-    if (newPassword.length < 6) return alert(MESSAGES.PASSWORD_SHORT);
-    if (newPassword !== confirmPassword) return alert("Passwords do not match!");
+    const requiredCheck = validateRequired(email, newPassword, confirmPassword);
+    if (!requiredCheck.valid) {
+      alert(requiredCheck.message);
+      return;
+    }
 
-    const users: User[] = getFromStorage<User[]>(STORAGE_KEYS.USER) || [];
+    const emailCheck = validateEmail(email);
+    if (!emailCheck.valid) {
+      alert(emailCheck.message);
+      return;
+    }
+
+    const passwordCheck = validatePassword(newPassword);
+    if (!passwordCheck.valid) {
+      alert(passwordCheck.message);
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    const users: IUser[] = getFromStorage<IUser[]>(STORAGE_KEYS.USER) || [];
     const userIndex = users.findIndex(u => u.email === email);
 
     if (userIndex === -1) {
